@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4609c3e7f6f46e149acf3e85f832d0c1, type: 3}
-  m_Name: Pistol
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  id: 0
-  gunName: Pistol
-  gunDamage: 5
-  magazineSize: 10
-  cooldownTime: 1
+  id: 1
+  gunName: Shotgun
+  gunDamage: 2
+  magazineSize: 8
+  cooldownTime: 2
   reloadTime: 2
-  bullet: {fileID: 2984304053725915559, guid: e7a610b13566aca4caa194f1126c85fe, type: 3}
+  bullet: {fileID: 2984304053725915559, guid: 24a4d8754a6b89b4bb440c54b8d67a80, type: 3}
   shotSound: {fileID: 0}
   reloadSound: {fileID: 0}
   gunSprite: {fileID: 0}
