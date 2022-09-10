@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
+  secondsOnScreen: 1
 --- !u!1 &2984304053725915559
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
+  secondsOnScreen: 1
 --- !u!1 &8391884850909211008
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,3 +415,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
+  secondsOnScreen: 1

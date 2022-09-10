@@ -32,4 +32,5 @@ public class InventoryManager : MonoBehaviour
     {
         Guns.Remove(gun);
     }
+
 }
