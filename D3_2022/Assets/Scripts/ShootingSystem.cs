@@ -19,7 +19,7 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public float stoppingReload = 0;
 
     public PauseMenu pauseMenu;
-    private bool GameIsPaused;
+    public InventoryMenu inventoryMenu;
 
     void Start ()
     {
@@ -30,8 +30,6 @@ public class ShootingSystem : MonoBehaviour
     }
     void Update()
     {
-        GameIsPaused = pauseMenu.GameIsPaused;
-
         if(bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;
@@ -42,7 +40,7 @@ public class ShootingSystem : MonoBehaviour
             hasBulletInMagazine = true;
         } 
 
-        if(!GameIsPaused)
+        if(!pauseMenu.GameIsPaused && !inventoryMenu.InventoryIsOpen)
         {
             if(Input.GetButtonDown("Fire1") && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
             {

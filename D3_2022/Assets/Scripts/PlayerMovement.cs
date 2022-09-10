@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     
     private float _angle;
     
+    public InventoryMenu inventoryMenu;
 
     void Start ()
     {
@@ -31,11 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        _playerRb.MovePosition(_playerRb.position + _direction * _moveSpeed * Time.fixedDeltaTime);
+        if(!inventoryMenu.InventoryIsOpen)
+        {
+            _playerRb.MovePosition(_playerRb.position + _direction * _moveSpeed * Time.fixedDeltaTime);
 
-        lookDirection = mousePos - _playerRb.position;
-        _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        _playerRb.rotation = _angle;
+            lookDirection = mousePos - _playerRb.position;
+            _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+            _playerRb.rotation = _angle;
+        }    
     }
 
 }
