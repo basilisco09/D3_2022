@@ -18,6 +18,9 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public float nextFireTime = 0;
     [HideInInspector]public float stoppingReload = 0;
 
+    public PauseMenu pauseMenu;
+    private bool GameIsPaused;
+
     void Start ()
     {
         magazineSize = gun.magazineSize;
@@ -27,6 +30,8 @@ public class ShootingSystem : MonoBehaviour
     }
     void Update()
     {
+        GameIsPaused = pauseMenu.GameIsPaused;
+
         if(bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;
@@ -37,18 +42,21 @@ public class ShootingSystem : MonoBehaviour
             hasBulletInMagazine = true;
         } 
 
-        if(Input.GetButtonDown("Fire1") && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+        if(!GameIsPaused)
         {
-            Shoot();
-            bulletsInMagazine -= 1;
-            nextFireTime = Time.time + cooldownTime;
-        }
-        
-        if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
-        {
-            Reload();
-            stoppingReload = Time.time + reloadTime;
-        }   
+            if(Input.GetButtonDown("Fire1") && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+            {
+                Shoot();
+                bulletsInMagazine -= 1;
+                nextFireTime = Time.time + cooldownTime;
+            }
+            
+            if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
+            {
+                Reload();
+                stoppingReload = Time.time + reloadTime;
+            }
+        }  
     }
 
     void Shoot ()
