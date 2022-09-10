@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickupSystem : MonoBehaviour
 {
+    [HideInInspector] public GameObject item;
+    [HideInInspector] public GameObject gun;
     [HideInInspector] public ItemController itemController;
     [HideInInspector] public GunController gunController;
     private bool isItem = false;
@@ -16,10 +18,12 @@ public class PickupSystem : MonoBehaviour
             if(isItem)
             {
                 PickupItem();
+                isItem = false;
             }
             if(isGun)
             {
                 PickupGun();
+                isGun = false;
             }
         }
     }
@@ -27,13 +31,13 @@ public class PickupSystem : MonoBehaviour
     public void PickupItem()
     { 
         InventoryManager.Instance.AddItem(itemController.item);
-        Destroy(itemController.gameObject);
+        Destroy(item);
     }
 
     public void PickupGun()
     {
         InventoryManager.Instance.AddGun(gunController.gun);
-        Destroy(gunController.gameObject);
+        Destroy(gun);
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -41,14 +45,16 @@ public class PickupSystem : MonoBehaviour
         Debug.Log("Im here");
         if(collider.tag == "Item")
         {
-            itemController = collider.gameObject.GetComponent<ItemController>();
             isItem = true;
+            item = collider.gameObject;
+            itemController = collider.gameObject.GetComponent<ItemController>();
             Debug.Log("Is touching a item");
         }
         if(collider.tag == "Gun")
         {
-            gunController = collider.gameObject.GetComponent<GunController>();
             isGun = true;
+            gun = collider.gameObject;
+            gunController = collider.gameObject.GetComponent<GunController>();
             Debug.Log("Is touching a gun");
         }
     }
