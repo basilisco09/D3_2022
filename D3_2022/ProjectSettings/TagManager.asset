@@ -4,8 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Item
-  - Gun
+  - NormalClock
+  - Bullet
+  - SpeedUpClock
+  - FillGridClock
+  - BigBulletClock
+  - RightWall
+  - LeftWall
+  - TopWall
+  - BottomWall
+  - SpeedDownClock
+  - WallClock
   layers:
   - Default
   - TransparentFX

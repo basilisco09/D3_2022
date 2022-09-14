@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ca5bc599e3ca144b593465ec4de35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5
+  bulletSpeed: 15
   secondsOnScreen: 1
 --- !u!1 &2984304053725915559
 GameObject:
@@ -166,7 +166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2984304053725915559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 1.09, z: 0}
+  m_LocalPosition: {x: 1.293, y: 1.072, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ca5bc599e3ca144b593465ec4de35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5
+  bulletSpeed: 15
   secondsOnScreen: 1
 --- !u!1 &8391884850909211008
 GameObject:
@@ -414,5 +414,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ca5bc599e3ca144b593465ec4de35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5
+  bulletSpeed: 15
   secondsOnScreen: 1
