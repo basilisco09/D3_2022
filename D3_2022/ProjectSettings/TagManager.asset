@@ -15,11 +15,13 @@ TagManager:
   - BottomWall
   - SpeedDownClock
   - WallClock
+  - Gun
+  - Item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 

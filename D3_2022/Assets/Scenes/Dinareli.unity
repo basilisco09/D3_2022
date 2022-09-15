@@ -830,6 +830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 7696696962138450102, guid: eb60412cd2f936949ba0437e3c78eb89,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb60412cd2f936949ba0437e3c78eb89, type: 3}
 --- !u!1001 &413085959
@@ -5224,6 +5229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curative
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154731152384977616, guid: 6dff93d95cf0d47499750a8c8ef74328,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dff93d95cf0d47499750a8c8ef74328, type: 3}
