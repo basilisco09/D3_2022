@@ -7,12 +7,11 @@ public class PauseMenu : MonoBehaviour
 {
     [HideInInspector] public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public InventoryMenu inventoryMenu;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !inventoryMenu.InventoryIsOpen)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {
