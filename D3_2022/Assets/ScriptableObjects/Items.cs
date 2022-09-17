@@ -1,33 +1,19 @@
 using UnityEngine;
 
-public enum boostType
+public enum type
 {
-  healthy,
-  speed,
-  damage,
+  consumible,
   ammo,
-  none
-}
-public enum debuffType
-{
-  healthy,
-  speed,
-  damage,
-  attackRange,
-  viewRange,
-  none
+  weapon
 }
 
-[CreateAssetMenu (menuName = "Item")] 
+
+[CreateAssetMenu(menuName = "Item")]
 public class Items : ScriptableObject
 {
-  public int id;
-  public string itemName;
-  public Sprite itemIcon;
-  public int level;
-  public int itemDurability;
-  public float successRating;
-  public int inventorySlots;
-  public boostType boost;
-  public debuffType debuf;
+    public int id;
+    public string itemName;
+    public Sprite itemIcon;
+    public int itemDurability;
+    public type type;
 }

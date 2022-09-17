@@ -10,6 +10,7 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public GunController gunController;
     private bool isItem = false;
     private bool isGun = false;
+    public GameObject MessagePanel;
 
     public void Update()
     {
@@ -43,19 +44,38 @@ public class PickupSystem : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Im here");
-        if(collider.tag == "Item")
+        if (collider.tag == "Item")
         {
             isItem = true;
             item = collider.gameObject;
             itemController = collider.gameObject.GetComponent<ItemController>();
+            isGun = false;
             Debug.Log("Is touching a item");
         }
-        if(collider.tag == "Gun")
-        {
-            isGun = true;
-            gun = collider.gameObject;
-            gunController = collider.gameObject.GetComponent<GunController>();
-            Debug.Log("Is touching a gun");
-        }
+        else
+        { 
+            if(collider.tag == "Gun")
+            {
+                isGun = true;
+                isItem = false;
+                gun = collider.gameObject;
+                gunController = collider.gameObject.GetComponent<GunController>();
+                Debug.Log("Is touching a gun");
+            }
+            else
+            {
+                isItem = false;
+                isGun = isItem;
+            }
+        }  
+    }
+    public void OpenMessagePanel(string text)
+    {
+        MessagePanel.SetActive(true);
+    }
+
+    public void CloseMessagePanel(string text)
+    {
+        MessagePanel.SetActive(false);
     }
 }
