@@ -4,29 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NormalClock
-  - Bullet
-  - SpeedUpClock
-  - FillGridClock
-  - BigBulletClock
-  - RightWall
-  - LeftWall
-  - TopWall
-  - BottomWall
-  - SpeedDownClock
-  - WallClock
+  - Enemy
   - Gun
-  - Item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Item
   - Water
   - UI
-  - Map
   - 
   - 
+  - Enemy
   - 
   - 
   - 

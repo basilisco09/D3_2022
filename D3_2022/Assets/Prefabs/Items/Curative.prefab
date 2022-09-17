@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7154731152384977582}
   - component: {fileID: 7154731152384977580}
   - component: {fileID: 8670779785760673671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Curative
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

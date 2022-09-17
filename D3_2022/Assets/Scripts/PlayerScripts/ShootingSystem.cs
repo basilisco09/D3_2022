@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
-    public Guns gun;
+    public GameObject gunGO;
+    [HideInInspector] Guns gun;
     public Transform firePoint;
+    public PickupSystem pickupSystem;
 
     [HideInInspector]public int bulletsInMagazine;
     [HideInInspector]public bool hasBulletInMagazine;
@@ -20,15 +22,20 @@ public class ShootingSystem : MonoBehaviour
 
     public PauseMenu pauseMenu;
 
-    void Start ()
+    void Start()
     {
+        bulletsInMagazine = magazineSize;
+    }
+
+    void Update()
+    {
+        gunGO = GetComponent<PickupSystem>().weapon;
+        firePoint = gunGO.transform.Find("FirePoint");
+        gun = gunGO.GetComponent<GunController>().gun;
         magazineSize = gun.magazineSize;
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;
-        bulletsInMagazine = magazineSize;
-    }
-    void Update()
-    {
+
         if(bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;
@@ -41,11 +48,23 @@ public class ShootingSystem : MonoBehaviour
 
         if(!pauseMenu.GameIsPaused)
         {
-            if(Input.GetButtonDown("Fire1") && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+            if(gun.isAutomatic)
             {
-                Shoot();
-                bulletsInMagazine -= 1;
-                nextFireTime = Time.time + cooldownTime;
+               if(Input.GetMouseButton(0) && hasBulletInMagazine && Time.time > nextFireTime &&!isReloading)
+                {
+                    Shoot();
+                    bulletsInMagazine -= 1;
+                    nextFireTime = Time.time + cooldownTime;
+                } 
+            }
+            else
+            {
+                if(Input.GetMouseButtonDown(0) && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+                {
+                    Shoot();
+                    bulletsInMagazine -= 1;
+                    nextFireTime = Time.time + cooldownTime;
+                }
             }
             
             if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
@@ -53,6 +72,7 @@ public class ShootingSystem : MonoBehaviour
                 Reload();
                 stoppingReload = Time.time + reloadTime;
             }
+
         }  
     }
 

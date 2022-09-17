@@ -12,9 +12,9 @@ public class Guns : ScriptableObject
     public float cooldownTime;
     [Tooltip ("The reload time is in seconds")] 
     public float reloadTime;
+    public bool isAutomatic;
     public GameObject bullet;
     public AudioClip shotSound;
     public AudioClip reloadSound;
-    public Sprite gunSprite;
 
 }
