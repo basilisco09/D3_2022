@@ -15,7 +15,9 @@ public class PickupSystem : MonoBehaviour
     private bool isItem = false;
     private bool isGun = false;
     public GameObject MessagePanel;
-
+    public Hotbar hotbar;
+    int i;
+  
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
@@ -26,7 +28,17 @@ public class PickupSystem : MonoBehaviour
             Debug.Log("Apertou E");
             if(isItem)
             {
-                PickupItem();
+                for (int i = 0; i < 5; i++)
+                {
+                    if (hotbar.isFull[i] == false)
+                    {
+                        Instantiate(item, hotbar.slots[i].transform, false);
+                        PickupItem();
+                        hotbar.isFull[i] = true;
+                        break;
+                    }
+                    
+                }
                 isItem = false;
             }
             if(isGun)
@@ -61,6 +73,7 @@ public class PickupSystem : MonoBehaviour
         if (interactable == null) return;
         if (interactable.tag == "Item")
         {
+
             isItem = true;
             isGun = false;
             item = interactable.gameObject;
