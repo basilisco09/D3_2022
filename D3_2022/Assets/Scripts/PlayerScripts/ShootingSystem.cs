@@ -14,7 +14,7 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public int magazineSize;
     [HideInInspector]public int fireRate;
     [HideInInspector]public float reloadTime;
-
+    [HideInInspector]public bool hasGun;
     [HideInInspector]public bool isReloading;
     [HideInInspector]public float cooldownTime;
     [HideInInspector]public float nextFireTime = 0;
@@ -30,50 +30,38 @@ public class ShootingSystem : MonoBehaviour
     void Update()
     {
         gunGO = GetComponent<PickupSystem>().weapon;
-        firePoint = gunGO.transform.Find("FirePoint");
-        gun = gunGO.GetComponent<GunController>().gun;
-        magazineSize = gun.magazineSize;
-        cooldownTime = gun.cooldownTime;
-        reloadTime = gun.reloadTime;
-
-        if(bulletsInMagazine <= 0)
-        {
-            hasBulletInMagazine = false;
-            Debug.Log("Has no ammo!");
-        }
-        else
-        {
-            hasBulletInMagazine = true;
-        } 
-
+        if(gunGO != null) hasGun = true;
+        if(hasGun) GetGunAttributes();
         if(!pauseMenu.GameIsPaused)
         {
-            if(gun.isAutomatic)
+            if(hasGun)
             {
-               if(Input.GetMouseButton(0) && hasBulletInMagazine && Time.time > nextFireTime &&!isReloading)
+                if(gun.isAutomatic)
                 {
-                    Shoot();
-                    bulletsInMagazine -= 1;
-                    nextFireTime = Time.time + cooldownTime;
-                } 
-            }
-            else
-            {
-                if(Input.GetMouseButtonDown(0) && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+                    if(Input.GetMouseButton(0) && hasBulletInMagazine && Time.time > nextFireTime &&!isReloading)
+                    {
+                        Shoot();
+                        bulletsInMagazine -= 1;
+                        nextFireTime = Time.time + cooldownTime;
+                    } 
+                }
+                else
                 {
-                    Shoot();
-                    bulletsInMagazine -= 1;
-                    nextFireTime = Time.time + cooldownTime;
+                    if(Input.GetMouseButtonDown(0) && hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
+                    {
+                        Shoot();
+                        bulletsInMagazine -= 1;
+                        nextFireTime = Time.time + cooldownTime;
+                    }
+                }
+                    
+                if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
+                {
+                    Reload();
+                    stoppingReload = Time.time + reloadTime;
                 }
             }
-            
-            if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
-            {
-                Reload();
-                stoppingReload = Time.time + reloadTime;
-            }
-
-        }  
+        }
     }
 
     void Shoot ()
@@ -87,5 +75,23 @@ public class ShootingSystem : MonoBehaviour
         Debug.Log("Reloading...");
         bulletsInMagazine = magazineSize;
         isReloading = false;
+    }
+
+    void GetGunAttributes()
+    {
+        firePoint = gunGO.transform.Find("FirePoint");
+        gun = gunGO.GetComponent<GunController>().gun;
+        magazineSize = gun.magazineSize;
+        cooldownTime = gun.cooldownTime;
+        reloadTime = gun.reloadTime;
+        if(bulletsInMagazine <= 0)
+        {
+            hasBulletInMagazine = false;
+            Debug.Log("Has no ammo!");
+        }
+        else
+        {
+            hasBulletInMagazine = true;
+        }
     }
 }

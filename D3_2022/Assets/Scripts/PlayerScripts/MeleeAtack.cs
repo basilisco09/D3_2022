@@ -23,8 +23,10 @@ public class MeleeAtack : MonoBehaviour
 
         //Damage then
         foreach (Collider2D enemy in hitEnemies)
-        {
-            Debug.Log("We hit " + enemy.name);
+        {   if(enemy.tag == "Enemy")
+            {
+                Debug.Log("We hit " + enemy.name);
+            }
         }
     }
 

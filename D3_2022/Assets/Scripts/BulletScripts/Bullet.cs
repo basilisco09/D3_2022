@@ -22,9 +22,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, secondsOnScreen);
     }
 
-    void OnCollisionEnter2D(Collision2D hitInfo)
-    {
-        Destroy(gameObject);
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {   
+        if(hitInfo.tag != "River") Destroy(gameObject);
     }
 
 }
