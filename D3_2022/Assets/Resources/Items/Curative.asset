@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: Curative
-  itemIcon: {fileID: 0}
-  level: 0
+  itemIcon: {fileID: 21300000, guid: 1d508aaaf93fc42d3a8abcea61af82b5, type: 3}
   itemDurability: 0
-  successRating: 0
-  inventorySlots: 0
-  boost: 0
-  debuf: 0
+  type: 0
