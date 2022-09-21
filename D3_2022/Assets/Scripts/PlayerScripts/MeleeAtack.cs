@@ -6,6 +6,7 @@ public class MeleeAtack : MonoBehaviour
 {
     public Transform attackPoint;
     public float attackRange;
+    public int meleeDamage;
     public LayerMask enemyLayers;
 
     void Update()
@@ -26,6 +27,7 @@ public class MeleeAtack : MonoBehaviour
         {   if(enemy.tag == "Enemy")
             {
                 Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<EnemyLifeSystem>().TakeDamage(meleeDamage);
             }
         }
     }

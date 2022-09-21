@@ -42,14 +42,14 @@ GameObject:
   - component: {fileID: 7269623417274057315}
   - component: {fileID: 7269623417274057314}
   - component: {fileID: 7269623417274057313}
-  - component: {fileID: 7269623417274057316}
+  - component: {fileID: 4923762566411692836}
   - component: {fileID: 5818423086415428510}
   - component: {fileID: 8683090321218420633}
   - component: {fileID: 7269623417274057317}
   - component: {fileID: 4351580692772792100}
   - component: {fileID: 7269623417274057318}
   - component: {fileID: 3074080749655944218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -146,8 +146,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &7269623417274057316
-BoxCollider2D:
+--- !u!58 &4923762566411692836
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,19 +159,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.095504224, y: 0.2235688}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.32, y: 3.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Size: {x: 1.1910084, y: 1.3452663}
-  m_EdgeRadius: 0
+  m_Radius: 0.8
 --- !u!96 &5818423086415428510
 TrailRenderer:
   serializedVersion: 2
@@ -309,14 +299,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ab508f76de31148a57c81e03fda2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunGO: {fileID: 0}
   gun: {fileID: 11400000, guid: 34512a35623125747b653d5eaa316b26, type: 2}
   firePoint: {fileID: 0}
+  pickupSystem: {fileID: 0}
   bulletsInMagazine: 0
   hasBulletInMagazine: 0
   magazineSize: 0
   fireRate: 0
   reloadTime: 0
+  hasGun: 0
   isReloading: 0
+  hasChangedGun: 0
   cooldownTime: 0
   nextFireTime: 0
   stoppingReload: 0
@@ -366,10 +360,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   gun: {fileID: 0}
+  weapon: {fileID: 0}
   itemController: {fileID: 0}
   gunController: {fileID: 0}
+  hasChangedGun: 0
+  itemsLayer:
+    serializedVersion: 2
+    m_Bits: 0
   gunSpawnTransform: {fileID: 0}
+  circleRadius: 0
   MessagePanel: {fileID: 0}
+  hotbar: {fileID: 0}
 --- !u!1 &8029645175241709161
 GameObject:
   m_ObjectHideFlags: 0

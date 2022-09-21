@@ -11,6 +11,11 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 _movement;
     private Vector3 _direction;
     private float _moveSpeed;
+    private float stopRadius = 1f;
+    private float _detectionRadius;
+    private bool playerIsClose;
+    private bool playerInFOV;
+    public LayerMask playerLayer;
 
     void Start()
     {
@@ -19,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         _enemyTransform = GetComponent<Transform>();
         _rb = GetComponent<Rigidbody2D>();
         _moveSpeed = GetComponent<EnemyController>().enemy.enemySpeed;
+        _detectionRadius = GetComponent<EnemyController>().enemy.enemyFOV;
     }
 
     void Update()
@@ -28,11 +34,58 @@ public class EnemyMovement : MonoBehaviour
         _rb.rotation = angle;
         _direction.Normalize();
         _movement = _direction;
+        StopCircle();
+        DetectionCircle();
     }
 
     void FixedUpdate()
     {
-        _rb.MovePosition(_enemyTransform.position + (_direction * _moveSpeed * Time.deltaTime));
+        if(playerInFOV)
+        {
+            if(!playerIsClose)
+            {
+                _rb.MovePosition(_enemyTransform.position + (_direction * _moveSpeed * Time.deltaTime));
+            }
+            else
+            {
+                _rb.MovePosition(_enemyTransform.position);
+            }
+        }    
     }
 
+    void StopCircle()
+    {
+        Collider2D player = Physics2D.OverlapCircle(this.transform.position, stopRadius, playerLayer);
+        if(player == null)
+        {
+            playerIsClose = false;
+            return;
+        }
+        else 
+        {
+            playerIsClose = true;
+        }
+    }
+
+    void DetectionCircle()
+    {
+        Collider2D player = Physics2D.OverlapCircle(this.transform.position, _detectionRadius, playerLayer);
+        if(player == null)
+        {
+            playerInFOV = false;
+            return;
+        }
+        else 
+        {
+            playerInFOV = true;
+        } 
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.transform.position, stopRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, _detectionRadius);
+    }
 }

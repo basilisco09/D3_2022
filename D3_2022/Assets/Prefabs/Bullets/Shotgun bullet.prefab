@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 15
   secondsOnScreen: 3
+  _bulletDamage: 25
 --- !u!61 &7893703983330431164
 BoxCollider2D:
   m_ObjectHideFlags: 0
