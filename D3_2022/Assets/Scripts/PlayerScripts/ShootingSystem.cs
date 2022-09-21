@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootingSystem : MonoBehaviour
 {
     public GameObject gunGO;
-    [HideInInspector] Guns gun;
+    public Guns gun;
     public Transform firePoint;
     public PickupSystem pickupSystem;
 
@@ -14,24 +14,22 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public int magazineSize;
     [HideInInspector]public int fireRate;
     [HideInInspector]public float reloadTime;
-    [HideInInspector]public bool hasGun;
-    [HideInInspector]public bool isReloading;
+    [HideInInspector]public bool hasGun = false;
+    [HideInInspector]public bool isReloading = false;
+    [HideInInspector]public bool hasChangedGun;
     [HideInInspector]public float cooldownTime;
     [HideInInspector]public float nextFireTime = 0;
     [HideInInspector]public float stoppingReload = 0;
 
     public PauseMenu pauseMenu;
 
-    void Start()
-    {
-        bulletsInMagazine = magazineSize;
-    }
 
     void Update()
     {
         gunGO = GetComponent<PickupSystem>().weapon;
         if(gunGO != null) hasGun = true;
         if(hasGun) GetGunAttributes();
+        if(GetComponent<PickupSystem>().hasChangedGun == true) bulletsInMagazine = magazineSize;
         if(!pauseMenu.GameIsPaused)
         {
             if(hasGun)
@@ -55,10 +53,9 @@ public class ShootingSystem : MonoBehaviour
                     }
                 }
                     
-                if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize && Time.time > stoppingReload)
+                if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize)
                 {
-                    Reload();
-                    stoppingReload = Time.time + reloadTime;
+                    StartCoroutine(Reload());
                 }
             }
         }
@@ -69,10 +66,11 @@ public class ShootingSystem : MonoBehaviour
         Instantiate(gun.bullet, firePoint.position, firePoint.rotation);
     }
 
-    void Reload()
+    IEnumerator Reload()
     {
         isReloading = true;
         Debug.Log("Reloading...");
+        yield return new WaitForSeconds(reloadTime);
         bulletsInMagazine = magazineSize;
         isReloading = false;
     }

@@ -17,7 +17,7 @@ MonoBehaviour:
   gunDamage: 20
   magazineSize: 24
   cooldownTime: 0.1
-  reloadTime: 2
+  reloadTime: 0.7
   isAutomatic: 1
   bullet: {fileID: 3275379344371257991, guid: 8cd38b295fc6b0643bce1d7b4375b566, type: 3}
   shotSound: {fileID: 0}

@@ -9,6 +9,7 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public GameObject weapon;
     [HideInInspector] public ItemController itemController;
     [HideInInspector] public GunController gunController;
+    [HideInInspector] public bool hasChangedGun = false;
     public LayerMask itemsLayer;
     public Transform gunSpawnTransform;
     public float circleRadius;
@@ -21,7 +22,7 @@ public class PickupSystem : MonoBehaviour
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
-
+        hasChangedGun = false;
         MakeACircle();
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -43,6 +44,7 @@ public class PickupSystem : MonoBehaviour
             }
             if(isGun)
             {
+                hasChangedGun = true;
                 PickupGun();
                 isGun = false;
             }
@@ -61,10 +63,9 @@ public class PickupSystem : MonoBehaviour
         InventoryManager.Instance.AddGun(gunController.gun);
         Debug.Log("Pegou a " + gun.name);
         Destroy(weapon);
+        Destroy(gun);
         weapon = Instantiate(gun, gunSpawnTransform);
         weapon.transform.localPosition = Vector3.zero;
-        Destroy(gun);
-        
     }
 
     void MakeACircle()
@@ -73,7 +74,6 @@ public class PickupSystem : MonoBehaviour
         if (interactable == null) return;
         if (interactable.tag == "Item")
         {
-
             isItem = true;
             isGun = false;
             item = interactable.gameObject;

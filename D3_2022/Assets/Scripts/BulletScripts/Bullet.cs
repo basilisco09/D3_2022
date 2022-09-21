@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {   
-        if(hitInfo.tag != "River") Destroy(gameObject);
+        if(hitInfo.tag != "River" && hitInfo.tag != "Gun") Destroy(gameObject);
     }
 
 }
