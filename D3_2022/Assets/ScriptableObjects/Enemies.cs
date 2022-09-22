@@ -16,5 +16,7 @@ public class Enemies : ScriptableObject
     public int enemyDamage;
     public int enemyHealth;
     public float enemySpeed;
+    public float attackRange;
+    public float attackCooldown;
     public float enemyFOV;
 }

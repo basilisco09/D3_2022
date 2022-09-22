@@ -6,11 +6,6 @@ public class HUD : MonoBehaviour
 {
     public GameObject MessagePanel;
 
-
-
-
-
-
     public void OpenMessagePanel(string text)
     {
         MessagePanel.SetActive(true);

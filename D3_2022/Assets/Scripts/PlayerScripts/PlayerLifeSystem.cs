@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLifeSystem : MonoBehaviour
+public class PlayerLifeSystem : MonoBehaviour
 {
-    private int maxHealth;
-    private int currentHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     void Start()
     {
-        maxHealth = GetComponent<EnemyController>().enemy.enemyHealth;
         currentHealth = maxHealth;
     }
 
@@ -21,7 +20,7 @@ public class EnemyLifeSystem : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy died");
+        Debug.Log("Player died");
         Destroy(gameObject);
     }
 }

@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
         _playerMovement = _player.GetComponent<PlayerMovement>();
+        
         _direction = (_playerMovement.lookDirection).normalized;
         _rb.velocity =  _direction * bulletSpeed; 
 

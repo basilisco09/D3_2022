@@ -24,11 +24,8 @@ public class MeleeAtack : MonoBehaviour
 
         //Damage then
         foreach (Collider2D enemy in hitEnemies)
-        {   if(enemy.tag == "Enemy")
-            {
-                Debug.Log("We hit " + enemy.name);
-                enemy.GetComponent<EnemyLifeSystem>().TakeDamage(meleeDamage);
-            }
+        {               
+            enemy.GetComponent<EnemyLifeSystem>().TakeDamage(meleeDamage);
         }
     }
 

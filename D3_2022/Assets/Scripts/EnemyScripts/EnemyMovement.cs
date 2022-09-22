@@ -11,11 +11,11 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 _movement;
     private Vector3 _direction;
     private float _moveSpeed;
-    private float stopRadius = 1f;
     private float _detectionRadius;
     private bool playerIsClose;
     private bool playerInFOV;
     public LayerMask playerLayer;
+    public float stopRadius = 1f;
 
     void Start()
     {
@@ -85,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, stopRadius);
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(this.transform.position, _detectionRadius);
     }
 }

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4351580692772792100}
   - component: {fileID: 7269623417274057318}
   - component: {fileID: 3074080749655944218}
+  - component: {fileID: 3873457314507283561}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -329,9 +330,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 6254334280614090192}
   attackRange: 0.7
+  meleeDamage: 20
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
 --- !u!114 &7269623417274057318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,11 +368,25 @@ MonoBehaviour:
   hasChangedGun: 0
   itemsLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   gunSpawnTransform: {fileID: 0}
   circleRadius: 0
   MessagePanel: {fileID: 0}
   hotbar: {fileID: 0}
+--- !u!114 &3873457314507283561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269623417274057327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b43968846848f498a4307d2cd5aeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1 &8029645175241709161
 GameObject:
   m_ObjectHideFlags: 0
