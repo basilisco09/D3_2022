@@ -17,6 +17,7 @@ TagManager:
   - Item
   - SmokeTrail
   - River
+  - Bullet
   layers:
   - Default
   - TransparentFX

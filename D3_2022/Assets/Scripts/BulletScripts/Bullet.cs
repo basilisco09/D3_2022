@@ -38,7 +38,11 @@ public class Bullet : MonoBehaviour
         {
             hitInfo.GetComponent<EnemyLifeSystem>().TakeDamage(_bulletDamage);
         }
-        if(hitInfo.tag != "River" && hitInfo.tag != "Gun") Destroy(gameObject);
+        if(hitInfo.tag == "Player")
+        {
+            hitInfo.GetComponent<PlayerLifeSystem>().TakeDamage(_bulletDamage);
+        }
+        if(hitInfo.tag != "River" && hitInfo.tag != "Gun" && hitInfo.tag != "Bullet") Destroy(gameObject);
     }
 
 }

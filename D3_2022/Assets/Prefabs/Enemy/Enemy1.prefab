@@ -188,7 +188,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  stopRadius: 1
+  stopRadius: 15
 --- !u!114 &223040351422622331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunGO: {fileID: 4296067303960395535, guid: 43f98040c3c28f24da683a015cbd18d6, type: 3}
-  weapon: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

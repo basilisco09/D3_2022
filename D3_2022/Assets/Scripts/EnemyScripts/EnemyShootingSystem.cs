@@ -58,7 +58,7 @@ public class EnemyShootingSystem : MonoBehaviour
                 }
             }
                 
-            if(bulletsInMagazine < magazineSize)
+            if(bulletsInMagazine == 0)
             {
                 StartCoroutine(Reload());
             }
