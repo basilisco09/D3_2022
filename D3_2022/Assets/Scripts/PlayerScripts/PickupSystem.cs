@@ -11,11 +11,8 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public GameObject weapon;
     [HideInInspector] public ItemController itemController;
     [HideInInspector] public GunController gunController;
-<<<<<<< HEAD
     [HideInInspector] public bool hasChangedGun = false;
-=======
     public List<Image> icones;
->>>>>>> origin/cilli
     public LayerMask itemsLayer;
     public Transform gunSpawnTransform;
     public float circleRadius;
@@ -28,12 +25,9 @@ public class PickupSystem : MonoBehaviour
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
-<<<<<<< HEAD
         hasChangedGun = false;
-=======
 
 
->>>>>>> origin/cilli
         MakeACircle();
         if(Input.GetKeyDown(KeyCode.E))
         {
