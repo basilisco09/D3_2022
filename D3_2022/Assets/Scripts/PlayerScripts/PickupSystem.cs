@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PickupSystem : MonoBehaviour
 {
@@ -9,7 +11,11 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public GameObject weapon;
     [HideInInspector] public ItemController itemController;
     [HideInInspector] public GunController gunController;
+<<<<<<< HEAD
     [HideInInspector] public bool hasChangedGun = false;
+=======
+    public List<Image> icones;
+>>>>>>> origin/cilli
     public LayerMask itemsLayer;
     public Transform gunSpawnTransform;
     public float circleRadius;
@@ -22,7 +28,12 @@ public class PickupSystem : MonoBehaviour
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
+<<<<<<< HEAD
         hasChangedGun = false;
+=======
+
+
+>>>>>>> origin/cilli
         MakeACircle();
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -33,7 +44,7 @@ public class PickupSystem : MonoBehaviour
                 {
                     if (hotbar.isFull[i] == false)
                     {
-                        Instantiate(item, hotbar.slots[i].transform, false);
+                        icones[i].sprite = item.GetComponent<SpriteRenderer>().sprite;
                         PickupItem();
                         hotbar.isFull[i] = true;
                         break;
