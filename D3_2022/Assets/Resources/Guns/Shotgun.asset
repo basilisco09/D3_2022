@@ -17,8 +17,8 @@ MonoBehaviour:
   gunDamage: 2
   magazineSize: 8
   cooldownTime: 2
-  reloadTime: 2
+  reloadTime: 4
+  isAutomatic: 0
   bullet: {fileID: 7908780933155763682, guid: 6eb3a157a8c97df4481552189711769d, type: 3}
   shotSound: {fileID: 0}
-  reloadSound: {fileID: 0}
-  gunSprite: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: bade3946ff27e5141849a1f15e060a9e, type: 3}

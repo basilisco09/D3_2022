@@ -20,6 +20,8 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public float cooldownTime;
     [HideInInspector]public float nextFireTime = 0;
     [HideInInspector]public float stoppingReload = 0;
+    [HideInInspector]public AudioSource audioSource;
+    [HideInInspector]public AudioClip reloadAudio;
 
     public PauseMenu pauseMenu;
 
@@ -53,7 +55,7 @@ public class ShootingSystem : MonoBehaviour
                     }
                 }
                     
-                if(Input.GetKeyDown(KeyCode.R) && bulletsInMagazine != magazineSize)
+                if(bulletsInMagazine == 0)
                 {
                     StartCoroutine(Reload());
                 }
@@ -70,6 +72,7 @@ public class ShootingSystem : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Reloading...");
+        if(!audioSource.isPlaying) audioSource.PlayOneShot(reloadAudio);
         yield return new WaitForSeconds(reloadTime);
         bulletsInMagazine = magazineSize;
         isReloading = false;
@@ -78,10 +81,13 @@ public class ShootingSystem : MonoBehaviour
     void GetGunAttributes()
     {
         firePoint = gunGO.transform.Find("FirePoint");
+        audioSource = gunGO.GetComponent<AudioSource>();
         gun = gunGO.GetComponent<GunController>().gun;
         magazineSize = gun.magazineSize;
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;
+        reloadAudio = gun.reloadSound;
+
         if(bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;

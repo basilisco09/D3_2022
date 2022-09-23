@@ -29,6 +29,7 @@ public class EnemyShootingSystem : MonoBehaviour
     {   gunSpawn = transform.Find("GunSpawn");
         weapon = Instantiate(gunGO, gunSpawn);
         weapon.transform.localPosition = Vector3.zero;
+        weapon.GetComponentInChildren<SpriteRenderer>().sprite = null;
         enemy = GetComponent<EnemyController>().enemy;
         attackRange = enemy.attackRange;
     }

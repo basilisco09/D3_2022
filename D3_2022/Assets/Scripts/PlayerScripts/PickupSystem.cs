@@ -68,8 +68,8 @@ public class PickupSystem : MonoBehaviour
         InventoryManager.Instance.AddGun(gunController.gun);
         Debug.Log("Pegou a " + gun.name);
         Destroy(weapon);
-        Destroy(gun);
         weapon = Instantiate(gun, gunSpawnTransform);
+        Destroy(gun);
         weapon.transform.localPosition = Vector3.zero;
     }
 

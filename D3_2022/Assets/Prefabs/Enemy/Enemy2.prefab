@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2b924247a9bdcd4d98748fbd7d2a27b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41a4c21ea9e87654b9ba212fc55a617f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,13 +94,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7637936331319194973}
   - component: {fileID: 3671958482830844616}
-  - component: {fileID: 5699561590480665525}
+  - component: {fileID: 1635558575413956308}
   - component: {fileID: 6411574153944729876}
   - component: {fileID: 8790076252496663155}
   - component: {fileID: 223040351422622331}
   - component: {fileID: 6878376207884248477}
   m_Layer: 8
-  m_Name: Enemy1
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: d0c3556e6906baa4f9c554d5b47920e2, type: 2}
---- !u!70 &5699561590480665525
+--- !u!70 &1635558575413956308
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,8 +149,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11531909, y: -0.00000022467151}
-  m_Size: {x: 1.8775092, y: 0.8982203}
+  m_Offset: {x: -0.11538782, y: -0.09000003}
+  m_Size: {x: 1.8393898, y: 0.8982278}
   m_Direction: 1
 --- !u!50 &6411574153944729876
 Rigidbody2D:
