@@ -22,5 +22,6 @@ public class PlayerLifeSystem : MonoBehaviour
     {
         Debug.Log("Player died");
         Destroy(gameObject);
+        Time.timeScale = 0f;
     }
 }

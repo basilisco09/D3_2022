@@ -8,18 +8,26 @@ public class Bullet : MonoBehaviour
     public float secondsOnScreen;
     private GameObject _player;
     private PlayerMovement _playerMovement;
+    private Transform _shooterTransform;
+    private Transform _gunSpawnTransform;
     private Rigidbody2D _rb;
-    private Vector2 _direction;
+    private Vector3 _direction;
     public int _bulletDamage = 10;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = GameObject.Find("Player");
-        _playerMovement = _player.GetComponent<PlayerMovement>();
-        
-        _direction = (_playerMovement.lookDirection).normalized;
+        _gunSpawnTransform = this.transform.parent.GetComponentInParent<Transform>();
+        _shooterTransform = _gunSpawnTransform.parent.transform;
+        //_player = GameObject.Find("Player");
+
+        //_playerMovement = _player.GetComponent<PlayerMovement>();
+        _direction = _gunSpawnTransform.position - _shooterTransform.position;
+        //_direction = (_playerMovement.lookDirection).normalized;
         _rb.velocity =  _direction * bulletSpeed; 
+
+        Debug.Log("Spawn transform " + _gunSpawnTransform);
+        Debug.Log("Shooter transform " + _shooterTransform);
 
         Destroy(gameObject, secondsOnScreen);
     }

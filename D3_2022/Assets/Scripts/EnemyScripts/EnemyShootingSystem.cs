@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShootingSystem : MonoBehaviour
 {
     public GameObject gunGO;
+    private GameObject weapon;
     private Guns gun;
     private Transform firePoint;
     public LayerMask playerLayer;
@@ -26,7 +27,8 @@ public class EnemyShootingSystem : MonoBehaviour
 
     void Start()
     {   gunSpawn = transform.Find("GunSpawn");
-        Instantiate(gunGO, gunSpawn.position, gunSpawn.rotation, gunSpawn);
+        weapon = Instantiate(gunGO, gunSpawn);
+        weapon.transform.localPosition = Vector3.zero;
         enemy = GetComponent<EnemyController>().enemy;
         attackRange = enemy.attackRange;
     }
@@ -64,7 +66,7 @@ public class EnemyShootingSystem : MonoBehaviour
 
     void Shoot ()
     {
-        Instantiate(gun.bullet, firePoint.position, firePoint.rotation);
+        Instantiate(gun.bullet, firePoint.position, firePoint.rotation, gunSpawn);
     }
 
     IEnumerator Reload()
@@ -78,8 +80,8 @@ public class EnemyShootingSystem : MonoBehaviour
 
     void GetGunAttributes()
     {
-        firePoint = gunGO.transform.Find("FirePoint");
-        gun = gunGO.GetComponent<GunController>().gun;
+        firePoint = weapon.transform.Find("FirePoint");
+        gun = weapon.GetComponent<GunController>().gun;
         magazineSize = gun.magazineSize;
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;

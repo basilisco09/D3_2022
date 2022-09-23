@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunGO: {fileID: 4296067303960395535, guid: 43f98040c3c28f24da683a015cbd18d6, type: 3}
+  weapon: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

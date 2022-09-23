@@ -63,7 +63,7 @@ public class ShootingSystem : MonoBehaviour
 
     void Shoot ()
     {
-        Instantiate(gun.bullet, firePoint.position, firePoint.rotation);
+        Instantiate(gun.bullet, firePoint.position, firePoint.rotation, firePoint.transform);
     }
 
     IEnumerator Reload()
