@@ -19,6 +19,6 @@ MonoBehaviour:
   cooldownTime: 2
   reloadTime: 4
   isAutomatic: 0
-  bullet: {fileID: 7908780933155763682, guid: 6eb3a157a8c97df4481552189711769d, type: 3}
+  bullet: {fileID: 7908780933155763682, guid: 47d502b68e1fce44bb8a822fbc569004, type: 3}
   shotSound: {fileID: 0}
   reloadSound: {fileID: 8300000, guid: bade3946ff27e5141849a1f15e060a9e, type: 3}

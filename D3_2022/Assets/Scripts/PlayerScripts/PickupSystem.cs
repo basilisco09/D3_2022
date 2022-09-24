@@ -12,6 +12,8 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public ItemController itemController;
     [HideInInspector] public GunController gunController;
     [HideInInspector] public bool hasChangedGun = false;
+    [HideInInspector] public PlayerLifeSystem playerLifeSystem;
+    [HideInInspector] public PlayerMovement playerMovement;
     public List<Image> icones;
     public LayerMask itemsLayer;
     public Transform gunSpawnTransform;
@@ -23,19 +25,17 @@ public class PickupSystem : MonoBehaviour
     int i;
     public int slt = 0;
     public Sprite nada;
-    
+
+    void Start()
+    {
+        playerLifeSystem = GetComponent<PlayerLifeSystem>();
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
         hasChangedGun = false;
-
-        void Use()
-        {
-
-
-        }
-
 
         MakeACircle();
         if(Input.GetKeyDown(KeyCode.E))
@@ -55,8 +55,7 @@ public class PickupSystem : MonoBehaviour
                     
                 }
                 isItem = false;*/
-                Use();
-
+                UseItem();
             }
             if(isGun)
             {
@@ -65,7 +64,8 @@ public class PickupSystem : MonoBehaviour
                 isGun = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             slt = 0;
         }
@@ -95,15 +95,17 @@ public class PickupSystem : MonoBehaviour
             Debug.Log("Apertou Q");
             DropItem(slt);
         }
-
+        */
     }
-    void UseItem(int slt)
+
+    /*void UseItem(int slt)
     {
         InventoryManager.Instance.RemoveItem(itemController.item);
         hotbar.isFull[slt] = false;
         icones[slt].sprite = nada;
 
     }
+
     void DropItem(int slt)
     {
         InventoryManager.Instance.RemoveItem(itemController.item);
@@ -116,7 +118,7 @@ public class PickupSystem : MonoBehaviour
         InventoryManager.Instance.AddItem(itemController.item);
         Debug.Log("Pegou um " + item.name);
         Destroy(item);
-    }
+    }*/
 
     public void PickupGun()
     {
@@ -126,13 +128,19 @@ public class PickupSystem : MonoBehaviour
         weapon = Instantiate(gun, gunSpawnTransform);
         Destroy(gun);
         weapon.transform.localPosition = Vector3.zero;
+        weapon.layer = 0;
     }
 
     void MakeACircle()
     {
         Collider2D interactable = Physics2D.OverlapCircle(transform.position, circleRadius, itemsLayer);
-        if (interactable == null) return;
-        if (interactable.tag == "Item")
+        if (interactable == null)
+        {
+            isItem = false;
+            isGun = false;
+            return;
+        }
+        if (interactable.tag == "ItemHealer" || interactable.tag == "ItemBooster" || interactable.tag == "ItemHealthUpgrade")
         {
             isItem = true;
             isGun = false;
@@ -156,6 +164,32 @@ public class PickupSystem : MonoBehaviour
                 isGun = false;
             }
         }   
+    }
+
+    void UseItem()
+    {
+        if(item.tag == "ItemHealer")
+        {
+            int cure = itemController.item.cureValue;
+            playerLifeSystem.Healing(cure);
+            Debug.Log("Has cured " + cure);
+        }
+
+        if(item.tag == "ItemBooster")
+        {
+            float boost = itemController.item.moveSpeedBoost;
+            float duration = itemController.item.boostDuration;
+            StartCoroutine(playerMovement.MoveBoost(boost, duration));
+        }
+
+        if(item.tag == "ItemHealthUpgrade")
+        {
+            int maxHealthUpgrade = itemController.item.maxHealthUpgrade;
+            int cure = itemController.item.cureValue;
+            playerLifeSystem.MaxHealthUpgrade(maxHealthUpgrade, cure);
+        }
+
+        Destroy(item);
     }
 
     void OnDrawGizmosSelected()

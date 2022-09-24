@@ -6,18 +6,14 @@ TagManager:
   tags:
   - Enemy
   - Gun
-  - GunBarrel
-  - GunBody
-  - GunMuzzle
-  - GunClip
   - Weapon
-  - GunProjectile
   - Wall
-  - GunSight
   - Item
-  - SmokeTrail
   - River
   - Bullet
+  - ItemHealer
+  - ItemBooster
+  - ItemHealthUpgrade
   layers:
   - Default
   - TransparentFX

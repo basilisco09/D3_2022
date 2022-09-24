@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     #region Var for movement
 
         private Rigidbody2D _playerRb;
-        [SerializeField] private float _moveSpeed;
+        public float moveSpeed;
         private Vector2 _direction;
 
     #endregion
@@ -66,14 +66,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(_isDashing) return;
 
-        //if(!_inventoryMenu.InventoryIsOpen)
-        {
-            _playerRb.MovePosition(_playerRb.position + _direction * _moveSpeed * Time.fixedDeltaTime);
+        _playerRb.MovePosition(_playerRb.position + _direction * moveSpeed * Time.fixedDeltaTime);
 
-            lookDirection = (_mousePos - _playerRb.position).normalized;
-            _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 88.5f;
-            _playerRb.rotation = _angle;
-        }    
+        lookDirection = (_mousePos - _playerRb.position).normalized;
+        _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 88.5f;
+        _playerRb.rotation = _angle;
     }
 
     private IEnumerator Dash()
@@ -87,5 +84,16 @@ public class PlayerMovement : MonoBehaviour
         _trailRenderer.emitting = false;
         _isDashing = false;
         _canDash = true;
+    }
+
+    public IEnumerator MoveBoost(float boost, float duration)
+    {
+        float normalSpeed = moveSpeed;
+        Color normalColor = _trailRenderer.startColor;
+        moveSpeed += boost;
+        _trailRenderer.startColor = Color.green;
+        yield return new WaitForSeconds(duration);
+        _trailRenderer.startColor = normalColor;
+        moveSpeed = normalSpeed;
     }
 }

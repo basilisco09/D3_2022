@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene("Dinareli4");
     }
 
     public void QuitGame()

@@ -1,19 +1,13 @@
 using UnityEngine;
 
-public enum type
-{
-  consumible,
-  ammo,
-  weapon
-}
-
-
 [CreateAssetMenu(menuName = "Item")]
 public class Items : ScriptableObject
 {
     public int id;
     public string itemName;
-    public Sprite itemIcon;
-    public int itemDurability;
-    public type type;
+    public float itemDuration;
+    public int cureValue;
+    public int maxHealthUpgrade;
+    public float moveSpeedBoost;
+    public float boostDuration;
 }
