@@ -21,11 +21,20 @@ public class PickupSystem : MonoBehaviour
     public GameObject MessagePanel;
     public Hotbar hotbar;
     int i;
-  
+    public int slt = 0;
+    public Sprite nada;
+    
+
     public void Update()
     {
         gunSpawnTransform = transform.Find("SpawnGunPoint");
         hasChangedGun = false;
+
+        void Use()
+        {
+
+
+        }
 
 
         MakeACircle();
@@ -34,7 +43,7 @@ public class PickupSystem : MonoBehaviour
             Debug.Log("Apertou E");
             if(isItem)
             {
-                for (int i = 0; i < 5; i++)
+                /*for (int i = 0; i < 5; i++)
                 {
                     if (hotbar.isFull[i] == false)
                     {
@@ -45,7 +54,9 @@ public class PickupSystem : MonoBehaviour
                     }
                     
                 }
-                isItem = false;
+                isItem = false;*/
+                Use();
+
             }
             if(isGun)
             {
@@ -54,6 +65,50 @@ public class PickupSystem : MonoBehaviour
                 isGun = false;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            slt = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            slt = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            slt = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            slt = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            slt = 4;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Apertou Space");
+            UseItem(slt);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Apertou Q");
+            DropItem(slt);
+        }
+
+    }
+    void UseItem(int slt)
+    {
+        InventoryManager.Instance.RemoveItem(itemController.item);
+        hotbar.isFull[slt] = false;
+        icones[slt].sprite = nada;
+
+    }
+    void DropItem(int slt)
+    {
+        InventoryManager.Instance.RemoveItem(itemController.item);
+        hotbar.isFull[slt] = false;
+        icones[slt].sprite = nada;
     }
 
     public void PickupItem()

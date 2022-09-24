@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public int seconds = 0;
     public int minutes = 0;
     public bool running = false;
+   
 
     void Start()
     {
@@ -20,17 +21,15 @@ public class Timer : MonoBehaviour
     {
         StartCoroutine(TimerTake());       
     }
-    
+
     IEnumerator TimerTake()
     {
-        for (; ; )
+        for ( ; ; )
         {
             running = true;
             textDisplay.GetComponent<Text>().text = minutes.ToString("00") + ":" + seconds.ToString("00");
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if (seconds == 60)
-                Debug.Log("FASE DA PORRADARIA STARTED");
             if (seconds % 60 == 0)
             {
                 seconds = 0;
@@ -41,3 +40,16 @@ public class Timer : MonoBehaviour
     }
 
 }
+
+
+
+    
+
+
+
+    
+    
+
+   
+
+

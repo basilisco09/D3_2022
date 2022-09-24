@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootSpawn : MonoBehaviour
+public class Level3 : MonoBehaviour
 {
     public GameObject ItemPrefab;
-    public float Radius = 1;
+    public float Radius = 2;
     public int seconds;
     public int time;
 
@@ -28,20 +28,14 @@ public class LootSpawn : MonoBehaviour
         StartCoroutine(TimerTake());
     }
 
-
-    void Start()
-    {
-        Spawn();
-    }
-
     IEnumerator TimerTake()
     {
         for (; ; )
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if (seconds % time == 0) 
-            Spawn();
+            if ((seconds > 120) && (seconds % time == 0))
+                Spawn();
         }
     }
 }
