@@ -22,9 +22,14 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public float stoppingReload = 0;
     [HideInInspector]public AudioSource audioSource;
     [HideInInspector]public AudioClip reloadAudio;
+    [HideInInspector]public AudioClip shotAudio;
 
-    public PauseMenu pauseMenu;
+    private PauseMenu pauseMenu;
 
+    void Start()
+    {
+        pauseMenu = FindObjectOfType<PauseMenu>();
+    }
 
     void Update()
     {
@@ -66,6 +71,7 @@ public class ShootingSystem : MonoBehaviour
     void Shoot ()
     {   
         Instantiate(gun.bullet, firePoint.position, firePoint.rotation, firePoint.transform);
+        audioSource.PlayOneShot(shotAudio);
     }
 
     IEnumerator Reload()
@@ -87,6 +93,7 @@ public class ShootingSystem : MonoBehaviour
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;
         reloadAudio = gun.reloadSound;
+        shotAudio = gun.shotSound;
 
         if(bulletsInMagazine <= 0)
         {

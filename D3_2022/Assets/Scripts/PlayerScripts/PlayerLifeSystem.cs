@@ -8,7 +8,9 @@ public class PlayerLifeSystem : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     public AudioClip deathSound;
+    public AudioClip hurtSound;
     private AudioSource audioSource;
+    public GameObject retryMenuUI;
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class PlayerLifeSystem : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        if(!audioSource.isPlaying)audioSource.PlayOneShot(hurtSound, 1f);
         if(currentHealth <= 0) Die();
     }
 
@@ -48,5 +51,6 @@ public class PlayerLifeSystem : MonoBehaviour
         audioSource.PlayOneShot(deathSound, 1f);
         Destroy(gameObject);
         Time.timeScale = 0f;
+        retryMenuUI.SetActive(true);
     }
 }

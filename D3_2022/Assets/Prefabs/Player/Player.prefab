@@ -284,10 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b07eeee4c95544e9d1002dd1ac7eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 13
   lookDirection: {x: 0, y: 0}
-  _dashPower: 10
-  _dashTime: 0.2
+  _dashPower: 15
+  _dashTime: 0.4
   _dashCooldown: 2
 --- !u!114 &7269623417274057317
 MonoBehaviour:
@@ -318,7 +318,7 @@ MonoBehaviour:
   stoppingReload: 0
   audioSource: {fileID: 0}
   reloadAudio: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  shotAudio: {fileID: 0}
 --- !u!114 &4351580692772792100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   gunSpawnTransform: {fileID: 0}
-  circleRadius: 0
+  circleRadius: 2
   MessagePanel: {fileID: 0}
   hotbar: {fileID: 0}
   slt: 0
@@ -393,9 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b43968846848f498a4307d2cd5aeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 500
+  currentHealth: 500
+  healthBar: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 7b2039e037fb06f4ea7cf44f1f20c0b8, type: 3}
+  hurtSound: {fileID: 8300000, guid: fc9f5de67bb2791409e2e82dbdd18d7a, type: 3}
 --- !u!82 &4845577613119513228
 AudioSource:
   m_ObjectHideFlags: 0
