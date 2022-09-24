@@ -17,5 +17,5 @@ MonoBehaviour:
   itemDuration: 0
   cureValue: 0
   maxHealthUpgrade: 0
-  moveSpeedBoost: 10
-  boostDuration: 2
+  moveSpeedBoost: 4
+  boostDuration: 10

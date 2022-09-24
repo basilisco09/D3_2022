@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   itemName: Curative
   itemDuration: 0
-  cureValue: 20
+  cureValue: 300
   maxHealthUpgrade: 0
   moveSpeedBoost: 0
   boostDuration: 0

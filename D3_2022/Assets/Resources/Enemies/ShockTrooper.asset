@@ -20,4 +20,4 @@ MonoBehaviour:
   enemySpeed: 7
   attackRange: 15
   attackCooldown: 3
-  enemyFOV: 30
+  enemyFOV: 1000

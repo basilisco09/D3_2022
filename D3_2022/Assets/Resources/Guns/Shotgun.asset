@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   gunName: Shotgun
-  gunDamage: 2
-  magazineSize: 8
-  cooldownTime: 2
+  gunDamage: 100
+  magazineSize: 12
+  cooldownTime: 1.5
   reloadTime: 4
   isAutomatic: 0
   bullet: {fileID: 7908780933155763682, guid: 47d502b68e1fce44bb8a822fbc569004, type: 3}
