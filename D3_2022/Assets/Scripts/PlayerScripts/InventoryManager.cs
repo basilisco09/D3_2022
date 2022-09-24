@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    Hotbar hotbar;
     public static InventoryManager Instance;
     public List<Items> Items = new List<Items>();
     public List<Guns> Guns = new List<Guns>();
+    
+    
 
     public void Awake()
     {
@@ -28,9 +31,14 @@ public class InventoryManager : MonoBehaviour
         Guns.Add(gun);
     }
 
-    public void RemoveGun(Guns gun)
+    
+
+
+    void Update()
     {
-        Guns.Remove(gun);
+        
     }
+
+
 
 }
