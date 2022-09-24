@@ -8,7 +8,7 @@ public class RetryMenu : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("TESTEFINAL");
+        SceneManager.LoadScene("Beta");
         Time.timeScale = 1f;
     }
 
