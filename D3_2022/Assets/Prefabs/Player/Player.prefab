@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1064122546539469593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2812639546119378127}
+  m_Layer: 6
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2812639546119378127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064122546539469593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7269623417274057315}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2593913265656696717
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +103,7 @@ Transform:
   m_Children:
   - {fileID: 6254334280614090192}
   - {fileID: 6534257367654549539}
+  - {fileID: 2812639546119378127}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -289,6 +321,10 @@ MonoBehaviour:
   _dashPower: 15
   _dashTime: 0.4
   _dashCooldown: 2
+  invisibilityRadius: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7269623417274057317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +344,8 @@ MonoBehaviour:
   bulletsInMagazine: 0
   hasBulletInMagazine: 0
   magazineSize: 0
+  totalAmmo: 0
+  hasTotalAmmo: 0
   fireRate: 0
   reloadTime: 0
   hasGun: 0
@@ -319,6 +357,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   reloadAudio: {fileID: 0}
   shotAudio: {fileID: 0}
+  noAmmoAudio: {fileID: 8300000, guid: cb288e62ed1e0624fb3ad237a1f1f5ac, type: 3}
 --- !u!114 &4351580692772792100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +376,8 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  audioSource: {fileID: 0}
+  attackAudio: {fileID: 8300000, guid: d265b9b74b62d6740883b76b27d6338c, type: 3}
 --- !u!114 &7269623417274057318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +439,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 7b2039e037fb06f4ea7cf44f1f20c0b8, type: 3}
   hurtSound: {fileID: 8300000, guid: fc9f5de67bb2791409e2e82dbdd18d7a, type: 3}
+  retryMenuUI: {fileID: 0}
 --- !u!82 &4845577613119513228
 AudioSource:
   m_ObjectHideFlags: 0

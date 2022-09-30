@@ -8,6 +8,13 @@ public class MeleeAtack : MonoBehaviour
     public float attackRange;
     public int meleeDamage;
     public LayerMask enemyLayers;
+    public AudioSource audioSource;
+    public AudioClip attackAudio;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -26,6 +33,7 @@ public class MeleeAtack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {               
             enemy.GetComponent<EnemyLifeSystem>().TakeDamage(meleeDamage);
+            audioSource.PlayOneShot(attackAudio, 1f);
         }
     }
 
