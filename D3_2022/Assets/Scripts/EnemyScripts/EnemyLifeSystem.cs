@@ -6,22 +6,35 @@ public class EnemyLifeSystem : MonoBehaviour
 {
     private int maxHealth;
     private int currentHealth;
+    public Contador contaMortes;
+    public bool canCount = true;
 
     void Start()
     {
         maxHealth = GetComponent<EnemyController>().enemy.enemyHealth;
         currentHealth = maxHealth;
+        contaMortes = FindObjectOfType<Contador>();
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0) Die();
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Die()
     {
+        
         Debug.Log("Enemy died");
         Destroy(gameObject);
+        contaMortes.contaMortes(1);
+        canCount = false;
     }
 }

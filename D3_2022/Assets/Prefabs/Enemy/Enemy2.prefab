@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0816ed1ca1a65434a889c369b2577280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contaMortes: {fileID: 0}
+  canCount: 0
 --- !u!114 &6878376207884248477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9402e3bcf804d544ea2c16dae25ca304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunGO: {fileID: 4296067303960395535, guid: 43f98040c3c28f24da683a015cbd18d6, type: 3}
+  gunGO: {fileID: 4296067303960395535, guid: f4a926e2933324a4aaeb984d481f5b0f, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

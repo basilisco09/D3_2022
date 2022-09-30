@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3716dd2e034b7c84cb6e01a885196a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: d0c3556e6906baa4f9c554d5b47920e2, type: 2}
+  enemy: {fileID: 11400000, guid: cf15223375ef2ec459758aa20170e825, type: 2}
 --- !u!70 &1635558575413956308
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  stopRadius: 3
+  stopRadius: 5
 --- !u!114 &223040351422622331
 MonoBehaviour:
   m_ObjectHideFlags: 0

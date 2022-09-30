@@ -49,7 +49,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 40
   secondsOnScreen: 5
-  _bulletDamage: 10
+  bulletDamage: 15
+  bullet1: {fileID: 0}
+  bullet2: {fileID: 0}
+  bullet3: {fileID: 0}
+  bullet4: {fileID: 0}
+  bullet5: {fileID: 0}
+  rb1: {fileID: 0}
+  rb2: {fileID: 0}
+  rb3: {fileID: 0}
+  rb4: {fileID: 0}
+  rb5: {fileID: 0}
 --- !u!61 &5216003613749269099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 8303617655713909482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 11, y: 11, z: 11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5214007792692169313}
