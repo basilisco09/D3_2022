@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4609c3e7f6f46e149acf3e85f832d0c1, type: 3}
+  m_Name: Assault Rifle
+  m_EditorClassIdentifier: 
+  id: 3
+  gunName: Assult Rifle
+  gunDamage: 30
+  magazineSize: 25
+  cooldownTime: 0.15
+  reloadTime: 2
+  isAutomatic: 1
+  bullet: {fileID: 3275379344371257991, guid: 8cd38b295fc6b0643bce1d7b4375b566, type: 3}
+  shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}
+  reloadSound: {fileID: 8300000, guid: 09edd3b430a32fb4aa4dcbe63566e10e, type: 3}

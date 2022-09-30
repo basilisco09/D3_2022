@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
             {
                 Instantiate(intro);
             }
-            if ((seconds == 21) && (minutes < 1))
+            if ((seconds == 11) && (minutes < 1))
             {
                 Instantiate(musica);
             }

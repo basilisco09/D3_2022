@@ -15,10 +15,10 @@ MonoBehaviour:
   id: 2
   gunName: SMG
   gunDamage: 20
-  magazineSize: 24
+  magazineSize: 30
   cooldownTime: 0.1
   reloadTime: 2
   isAutomatic: 1
-  bullet: {fileID: 3275379344371257991, guid: 8cd38b295fc6b0643bce1d7b4375b566, type: 3}
+  bullet: {fileID: 3275379344371257991, guid: d6504d7923f2ff342be8efbe3d2541b0, type: 3}
   shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}
   reloadSound: {fileID: 8300000, guid: 09edd3b430a32fb4aa4dcbe63566e10e, type: 3}

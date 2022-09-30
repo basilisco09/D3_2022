@@ -15,9 +15,13 @@ public class Bullet : MonoBehaviour
     [HideInInspector]public GameObject bullet1;
     [HideInInspector]public GameObject bullet2;
     [HideInInspector]public GameObject bullet3;
+    [HideInInspector]public GameObject bullet4;
+    [HideInInspector]public GameObject bullet5;
     [HideInInspector]public Rigidbody2D rb1;
     [HideInInspector]public Rigidbody2D rb2;
     [HideInInspector]public Rigidbody2D rb3;
+    [HideInInspector]public Rigidbody2D rb4;
+    [HideInInspector]public Rigidbody2D rb5;
 
     void Start()
     {
@@ -34,6 +38,8 @@ public class Bullet : MonoBehaviour
             bullet1 = GetComponent<Transform>().Find("Bullet1").gameObject;
             bullet2 = GetComponent<Transform>().Find("Bullet2").gameObject;
             bullet3 = GetComponent<Transform>().Find("Bullet3").gameObject;
+            bullet4 = GetComponent<Transform>().Find("Bullet4").gameObject;
+            bullet5 = GetComponent<Transform>().Find("Bullet5").gameObject;
 
             rb1 = bullet1.GetComponent<Rigidbody2D>();
             _direction = bullet1.transform.position - _shooterTransform.position;
@@ -45,7 +51,15 @@ public class Bullet : MonoBehaviour
 
             rb3 = bullet3.GetComponent<Rigidbody2D>();
             _direction = bullet3.transform.position - _shooterTransform.position;
-            rb3.velocity =  _direction * bulletSpeed; 
+            rb3.velocity =  _direction * bulletSpeed;
+
+            rb4 = bullet4.GetComponent<Rigidbody2D>();
+            _direction = bullet4.transform.position - _shooterTransform.position;
+            rb4.velocity = _direction * bulletSpeed;
+
+            rb5 = bullet5.GetComponent<Rigidbody2D>();
+            _direction = bullet5.transform.position - _shooterTransform.position;
+            rb5.velocity = _direction * bulletSpeed;
         }
 
         Destroy(gameObject, secondsOnScreen);
