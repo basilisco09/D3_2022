@@ -16,5 +16,6 @@ public class Guns : ScriptableObject
     public GameObject bullet;
     public AudioClip shotSound;
     public AudioClip reloadSound;
+    public Sprite gunSprite;
 
 }
