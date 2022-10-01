@@ -68,7 +68,7 @@ public class ShootingSystem : MonoBehaviour
                     }
                 }
                     
-                if(bulletsInMagazine == 0 && hasTotalAmmo)
+                if(bulletsInMagazine == 0 && hasTotalAmmo && !isReloading)
                 {
                     StartCoroutine(Reload());
                 }
@@ -93,9 +93,9 @@ public class ShootingSystem : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Reloading...");
-        if(!audioSource.isPlaying && hasTotalAmmo) audioSource.PlayOneShot(reloadAudio);
+        audioSource.PlayOneShot(reloadAudio, 1f);
         yield return new WaitForSeconds(reloadTime);
-        totalAmmo -= magazineSize - bulletsInMagazine;
+        totalAmmo -= magazineSize;
         if(totalAmmo > 0) 
         {
             bulletsInMagazine = magazineSize;

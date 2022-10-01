@@ -25,6 +25,7 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar(int currentHealth, int maxHealth)
     {
+        if(currentHealth < 0) currentHealth = 0;
         GetComponentInChildren<Text>().text = currentHealth.ToString("00") + " / " + maxHealth.ToString("00");
     }
 }

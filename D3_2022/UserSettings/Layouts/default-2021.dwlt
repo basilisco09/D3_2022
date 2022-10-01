@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 8117
+  controlID: 12776
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 8118
+  controlID: 12781
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 8119
+  controlID: 12782
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -400,24 +400,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1ebb0000
+      scrollPos: {x: 0, y: 1017}
+      m_SelectedIDs: 78650000
       m_LastClickedID: 0
-      m_ExpandedIDs: 8473feff3e76feff427bfeff067efeff64d5ffff7ad5ffff8ed8ffff04dcffff02faffff
+      m_ExpandedIDs: 929effff60a5ffff14f3ffffe4f6ffffeefaffff8a680000ac680000026a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Retry
-        m_OriginalName: Retry
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -10908
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -675,9 +675,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -27.652935, y: 5.04354, z: 0.14439341}
+    m_Target: {x: 509.75085, y: 309.57724, z: 18.19089}
     speed: 2
-    m_Value: {x: -27.548563, y: 5.836763, z: 0.12651111}
+    m_Value: {x: 507.9617, y: 313.69232, z: 18.037617}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -728,9 +728,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 37.950207
+    m_Target: 325.2768
     speed: 2
-    m_Value: 39.738438
+    m_Value: 340.60397
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -797,22 +797,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Audio/Guns/Reload
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Audio/Guns/Reload
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\basil\Documents\GitHub\D3_2022\D3_2022
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 271}
-    m_SelectedIDs: 40690000
-    m_LastClickedID: 26944
-    m_ExpandedIDs: 00000000a8680000aa680000ac680000ae680000b0680000b2680000b4680000b6680000b8680000ffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 60da0000
+    m_LastClickedID: 55904
+    m_ExpandedIDs: 000000002e67000030670000326700003467000036670000386700003a6700003c6700003e670000be67000062da0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -840,7 +840,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a8680000aa680000ac680000ae680000b0680000b2680000b4680000b6680000b8680000ffffff7f
+    m_ExpandedIDs: 000000002e67000030670000326700003467000036670000386700003a6700003c6700003e670000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
