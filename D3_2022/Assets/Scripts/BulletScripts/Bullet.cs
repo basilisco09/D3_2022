@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector3 _direction;
     public int bulletDamage = 10;
+    public bool explosive;
+    public GameObject ex;
 
     [HideInInspector]public GameObject bullet1;
     [HideInInspector]public GameObject bullet2;
@@ -75,7 +77,15 @@ public class Bullet : MonoBehaviour
         {
             hitInfo.GetComponent<PlayerLifeSystem>().TakeDamage(bulletDamage);
         }
-        if(hitInfo.tag != "River" && hitInfo.tag != "Gun" && hitInfo.tag != "Bullet") Destroy(gameObject);
+        if (hitInfo.tag != "River" && hitInfo.tag != "Gun" && hitInfo.tag != "Bullet")
+        {
+            if (explosive == true)
+            {
+                Debug.Log("boom");
+                Instantiate(ex, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
     }
-
 }
+

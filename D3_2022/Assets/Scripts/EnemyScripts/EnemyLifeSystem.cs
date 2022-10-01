@@ -34,7 +34,7 @@ public class EnemyLifeSystem : MonoBehaviour
         
         Debug.Log("Enemy died");
         Destroy(gameObject);
-        contaMortes.contaMortes(1);
+        contaMortes.ContaMortes(1);
         canCount = false;
     }
 }

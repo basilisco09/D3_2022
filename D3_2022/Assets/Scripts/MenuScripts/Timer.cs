@@ -12,11 +12,13 @@ public class Timer : MonoBehaviour
     public int seconds = 0;
     public int minutes = 0;
     public bool running = false;
+    
 
 
     void Start()
     {
         textDisplay.GetComponent<Text>().text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        
     }
 
     void Awake()

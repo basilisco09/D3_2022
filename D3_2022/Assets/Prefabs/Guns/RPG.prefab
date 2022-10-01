@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 0b9470a6ae7024979828fb99e5acf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74b5f8e4cb8c54311b7fe144a9009818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3429702701175528595}
   - component: {fileID: 9160929830821441043}
   m_Layer: 3
-  m_Name: AssaultRifle
+  m_Name: RPG
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b3e2b5c1c3d4b42ae04117a12432c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 75c3f0647987a1e4db5c702de9c0d1fc, type: 2}
+  gun: {fileID: 11400000, guid: f5c6f7c3bd6facf4fb96f4ddac80b61a, type: 2}
 --- !u!61 &3429702701175528595
 BoxCollider2D:
   m_ObjectHideFlags: 0

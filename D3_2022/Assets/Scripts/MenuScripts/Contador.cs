@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Contador : MonoBehaviour
 {
-    EnemyLifeSystem ene;
     public GameObject textDisplay;
     public int cont = 0;
 
@@ -16,7 +15,7 @@ public class Contador : MonoBehaviour
     }
 
     
-   public bool contaMortes(int mortes)
+   public bool ContaMortes(int mortes)
     {
         cont+=mortes;
         textDisplay.GetComponent<Text>().text = cont.ToString("00");
