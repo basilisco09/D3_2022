@@ -781,7 +781,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 50
   secondsOnScreen: 0.2
-  bulletDamage: 40
+  bulletDamage: 30
+  explosive: 0
+  ex: {fileID: 0}
   bullet1: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}

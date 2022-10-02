@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   gunName: Shotgun
-  gunDamage: 50
+  gunDamage: 35
   magazineSize: 12
   cooldownTime: 1
   reloadTime: 4

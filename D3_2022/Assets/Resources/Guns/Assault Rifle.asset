@@ -15,11 +15,15 @@ MonoBehaviour:
   id: 3
   gunName: Assult Rifle
   gunDamage: 30
-  magazineSize: 25
-  cooldownTime: 0.15
+  magazineSize: 35
+  cooldownTime: 0.125
   reloadTime: 2
   isAutomatic: 1
   bullet: {fileID: 3275379344371257991, guid: 8cd38b295fc6b0643bce1d7b4375b566, type: 3}
   shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}
   reloadSound: {fileID: 8300000, guid: 09edd3b430a32fb4aa4dcbe63566e10e, type: 3}
+<<<<<<< HEAD
   gunSprite: {fileID: 21300000, guid: e133ec52ca922e344b1276ee7c8faa1e, type: 3}
+=======
+  gunSprite: {fileID: 0}
+>>>>>>> origin/cilli
