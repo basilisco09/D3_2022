@@ -13,8 +13,9 @@ public class PlayerLifeSystem : MonoBehaviour
     private AudioSource audioSource;
     public GameObject retryMenuUI;
     public Timer timer;
+    public bool playerIsDead = false;
 
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         healthBar = FindObjectOfType<HealthBar>();
@@ -55,6 +56,7 @@ public class PlayerLifeSystem : MonoBehaviour
      void Die()
      {
         Debug.Log("Player died");
+        playerIsDead = true;
         audioSource.PlayOneShot(deathSound, 1f);
         Destroy(gameObject);
         Time.timeScale = 0f;

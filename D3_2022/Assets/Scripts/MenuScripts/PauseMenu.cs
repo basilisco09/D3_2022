@@ -7,11 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     [HideInInspector] public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public bool playerIsDead;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        playerIsDead = FindObjectOfType<PlayerLifeSystem>().playerIsDead;
+        if(Input.GetKeyDown(KeyCode.Escape) && !playerIsDead)
         {
             if(GameIsPaused)
             {

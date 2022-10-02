@@ -24,9 +24,12 @@ public class EnemyShootingSystem : MonoBehaviour
     private Enemies enemy;
     private float attackRange;
     private Transform gunSpawn;
+    private EnemyMovement enemyMovement;
 
     void Start()
-    {   gunSpawn = transform.Find("GunSpawn");
+    {   
+        enemyMovement = GetComponent<EnemyMovement>();
+        gunSpawn = transform.Find("GunSpawn");
         weapon = Instantiate(gunGO, gunSpawn);
         weapon.transform.localPosition = Vector3.zero;
         weapon.GetComponentInChildren<SpriteRenderer>().sprite = null;
@@ -40,6 +43,7 @@ public class EnemyShootingSystem : MonoBehaviour
         
         Collider2D player = Physics2D.OverlapCircle(this.transform.position, attackRange, playerLayer);
         if(player == null) return;
+        //if(!enemyMovement.canShot) return;
         GetGunAttributes();
             if(gun.isAutomatic)
             {

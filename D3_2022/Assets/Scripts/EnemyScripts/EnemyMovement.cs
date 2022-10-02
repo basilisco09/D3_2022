@@ -29,11 +29,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        _direction = _playerTransform.position - _enemyTransform.position;
-        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-        _rb.rotation = angle;
-        _direction.Normalize();
-        _movement = _direction;
+        //_movement = _direction;
         StopCircle();
         DetectionCircle();
     }
@@ -44,11 +40,15 @@ public class EnemyMovement : MonoBehaviour
         {
             if(!playerIsClose)
             {
-                _rb.MovePosition(_enemyTransform.position + (_direction * _moveSpeed * Time.deltaTime));
+                //_rb.MovePosition(_enemyTransform.position + (_direction * _moveSpeed * Time.deltaTime));
             }
             else
             {
-                _rb.MovePosition(_enemyTransform.position);
+                _rb.velocity = Vector2.zero;
+                _direction = _playerTransform.position - _enemyTransform.position;
+                float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 78f;
+                _rb.rotation = angle;
+                _direction.Normalize();
             }
         }    
     }

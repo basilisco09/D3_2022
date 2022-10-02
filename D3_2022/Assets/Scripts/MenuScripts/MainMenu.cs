@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Beta");
+        SceneManager.LoadScene("Versao01.10");
     }
 
     public void QuitGame()
