@@ -19,6 +19,7 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public bool hasGun = false;
     [HideInInspector]public bool isReloading = false;
     [HideInInspector]public bool hasChangedGun;
+    [HideInInspector]public bool reloadCanceled = false;
     [HideInInspector]public float cooldownTime;
     [HideInInspector]public float nextFireTime = 0;
     [HideInInspector]public float stoppingReload = 0;
@@ -32,15 +33,18 @@ public class ShootingSystem : MonoBehaviour
     void Start()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
+        pickupSystem = GetComponent<PickupSystem>();
     }
 
     void Update()
     {
         gunGO = GetComponent<PickupSystem>().weapon;
         if(gunGO != null) hasGun = true;
+        if(pickupSystem.hasChangedGun) StartCoroutine(ReloadCancel());
         if(hasGun) GetGunAttributes();
-        if(GetComponent<PickupSystem>().hasChangedGun == true)
+        if(pickupSystem.hasChangedGun)
         {
+            Debug.Log("Mudou de arma");
             bulletsInMagazine = magazineSize;
             totalAmmo = 5 * magazineSize;
             hasTotalAmmo = true;
@@ -51,24 +55,32 @@ public class ShootingSystem : MonoBehaviour
             {
                 if(gun.isAutomatic)
                 {
-                    if(Input.GetMouseButton(0) && Time.time > nextFireTime &&!isReloading)
+                    if(Input.GetMouseButton(0) && Time.time > nextFireTime)
                     {
-                        Shoot();
-                        bulletsInMagazine -= 1;
-                        nextFireTime = Time.time + cooldownTime;
+                        if(bulletsInMagazine > 0)
+                        {
+                            Shoot();
+                            bulletsInMagazine -= 1;
+                            nextFireTime = Time.time + cooldownTime;
+                        }
+                        else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
                     } 
                 }
                 else
                 {
-                    if(Input.GetMouseButtonDown(0) && Time.time > nextFireTime && !isReloading)
+                    if(Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
                     {
-                        Shoot();
-                        bulletsInMagazine -= 1;
-                        nextFireTime = Time.time + cooldownTime;
+                        if(bulletsInMagazine > 0)
+                        {
+                            Shoot();
+                            bulletsInMagazine -= 1;
+                            nextFireTime = Time.time + cooldownTime;
+                        }
+                        else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
                     }
                 }
                     
-                if(bulletsInMagazine == 0 && hasTotalAmmo && !isReloading)
+                if(bulletsInMagazine == 0 && hasTotalAmmo && !isReloading && !reloadCanceled)
                 {
                     StartCoroutine(Reload());
                 }
@@ -83,27 +95,26 @@ public class ShootingSystem : MonoBehaviour
             Instantiate(gun.bullet, firePoint.position, firePoint.rotation, firePoint.transform);
             audioSource.PlayOneShot(shotAudio);
         }
-        else
-        {
-            audioSource.PlayOneShot(noAmmoAudio, 1f);
-        }
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
         Debug.Log("Reloading...");
-        audioSource.PlayOneShot(reloadAudio, 1f);
+        if(totalAmmo > 0) audioSource.PlayOneShot(reloadAudio, 1f);
         yield return new WaitForSeconds(reloadTime);
-        totalAmmo -= magazineSize;
-        if(totalAmmo > 0) 
+        if(!reloadCanceled)
         {
-            bulletsInMagazine = magazineSize;
-            hasTotalAmmo = true;
-        }
-        else
-        {
-            hasTotalAmmo = false;
+            totalAmmo -= magazineSize;
+            if(totalAmmo >= 0) 
+            {
+                bulletsInMagazine = magazineSize;
+                hasTotalAmmo = true;
+            }
+            else
+            {
+                hasTotalAmmo = false;
+            }
         }
         isReloading = false;
     }
@@ -128,5 +139,14 @@ public class ShootingSystem : MonoBehaviour
         {
             hasBulletInMagazine = true;
         }
+    }
+
+    IEnumerator ReloadCancel()
+    {
+        reloadCanceled = true;
+        StopCoroutine(Reload());
+        Debug.Log("Reload cancelado");
+        yield return new WaitForSeconds(reloadTime);
+        reloadCanceled = false;
     }
 }

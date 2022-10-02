@@ -30,6 +30,7 @@ public class PickupSystem : MonoBehaviour
     {
         playerLifeSystem = GetComponent<PlayerLifeSystem>();
         playerMovement = GetComponent<PlayerMovement>();
+
     }
 
     public void Update()

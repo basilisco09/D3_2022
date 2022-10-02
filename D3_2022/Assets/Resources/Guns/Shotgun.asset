@@ -22,4 +22,4 @@ MonoBehaviour:
   bullet: {fileID: 7908780933155763682, guid: 47d502b68e1fce44bb8a822fbc569004, type: 3}
   shotSound: {fileID: 8300000, guid: e5b9870af1b0e9342827c666da688685, type: 3}
   reloadSound: {fileID: 8300000, guid: c0847555ec403284684dd79a363dbf64, type: 3}
-  gunSprite: {fileID: 21300000, guid: a2952b2f5ca31e6469d274e0af91ac87, type: 3}
+  gunSprite: {fileID: 21300000, guid: a582c313613ccd845874cdcd035fad1b, type: 3}

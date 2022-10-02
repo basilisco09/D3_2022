@@ -321,7 +321,7 @@ MonoBehaviour:
   _dashPower: 15
   _dashTime: 0.4
   _dashCooldown: 2
-  invisibilityRadius: 1
+  invisibilityRadius: 0.7
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -440,6 +440,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 7b2039e037fb06f4ea7cf44f1f20c0b8, type: 3}
   hurtSound: {fileID: 8300000, guid: fc9f5de67bb2791409e2e82dbdd18d7a, type: 3}
   retryMenuUI: {fileID: 0}
+  timer: {fileID: 0}
+  playerIsDead: 0
 --- !u!82 &4845577613119513228
 AudioSource:
   m_ObjectHideFlags: 0
