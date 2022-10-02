@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: be97883e1c211dd4b98a2c34d2feeff7
   - enabled: 1
-    path: Assets/Scenes/Versao01.10.unity
-    guid: a19075d4f51f2ec44983c381a22151b2
+    path: Assets/Scenes/Versao02.10.unity
+    guid: bb36df3f3771d2d4db7d3646a9980608
   m_configObjects: {}
