@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 40
   secondsOnScreen: 5
-  bulletDamage: 5
+  bulletDamage: 10
+  explosive: 0
+  ex: {fileID: 0}
   bullet1: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}

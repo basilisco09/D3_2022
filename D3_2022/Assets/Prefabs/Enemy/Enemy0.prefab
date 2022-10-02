@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 152562003296973099}
   - component: {fileID: 1460271974639656847}
   - component: {fileID: 864662092720755321}
+  - component: {fileID: 3480474998415597666}
   m_Layer: 8
   m_Name: Enemy0
   m_TagString: Enemy
@@ -117,7 +118,7 @@ MonoBehaviour:
   radius: 1.2
   height: 0.01
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 7
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -252,6 +253,26 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &3480474998415597666
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603042741432398677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4429d5aead5c98d488421012b8c9d244, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8429066834255337633
 GameObject:
   m_ObjectHideFlags: 0

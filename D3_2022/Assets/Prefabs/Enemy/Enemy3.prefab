@@ -96,10 +96,10 @@ GameObject:
   - component: {fileID: 8011344970416573977}
   - component: {fileID: 6753256304869359450}
   - component: {fileID: 431165188266662399}
+  - component: {fileID: 8790076252496663155}
   - component: {fileID: 3671958482830844616}
   - component: {fileID: 1635558575413956308}
   - component: {fileID: 6411574153944729876}
-  - component: {fileID: 8790076252496663155}
   - component: {fileID: 223040351422622331}
   - component: {fileID: 6878376207884248477}
   m_Layer: 8
@@ -170,7 +170,7 @@ MonoBehaviour:
   radius: 1
   height: 0.01
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 4
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -191,7 +191,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0
   pickNextWaypointDist: 2
-  endReachedDistance: 5
+  endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -210,6 +210,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &8790076252496663155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398047130809338899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47423de1c6e05a24b86e7176482a1c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopRadius: 5
 --- !u!114 &3671958482830844616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3716dd2e034b7c84cb6e01a885196a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: cf15223375ef2ec459758aa20170e825, type: 2}
+  enemy: {fileID: 11400000, guid: 2a82a3a03d54b2f4bbc2faa5c9d0fa99, type: 2}
 --- !u!70 &1635558575413956308
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -260,22 +276,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8790076252496663155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398047130809338899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47423de1c6e05a24b86e7176482a1c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  stopRadius: 5
 --- !u!114 &223040351422622331
 MonoBehaviour:
   m_ObjectHideFlags: 0

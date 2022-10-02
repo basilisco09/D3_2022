@@ -9,7 +9,7 @@ public class Explosion : MonoBehaviour
     void Awake()
     {
 
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 0.5f);
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)

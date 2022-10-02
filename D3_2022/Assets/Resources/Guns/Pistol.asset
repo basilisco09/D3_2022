@@ -15,10 +15,11 @@ MonoBehaviour:
   id: 0
   gunName: Pistol
   gunDamage: 20
-  magazineSize: 15
+  magazineSize: 20
   cooldownTime: 0
   reloadTime: 2
   isAutomatic: 0
   bullet: {fileID: 3275379344371257991, guid: d6504d7923f2ff342be8efbe3d2541b0, type: 3}
   shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}
   reloadSound: {fileID: 8300000, guid: 09edd3b430a32fb4aa4dcbe63566e10e, type: 3}
+  gunSprite: {fileID: 0}
