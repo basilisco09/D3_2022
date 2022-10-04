@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         _playerRb.MovePosition(_playerRb.position + _direction * moveSpeed * Time.fixedDeltaTime);
 
         lookDirection = _mousePos - _playerRb.position;
-        _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        _angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 88.5f;
         _playerRb.rotation = _angle;
     }
 

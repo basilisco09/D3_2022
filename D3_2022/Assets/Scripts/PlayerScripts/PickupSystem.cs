@@ -14,6 +14,7 @@ public class PickupSystem : MonoBehaviour
     [HideInInspector] public bool hasChangedGun = false;
     [HideInInspector] public PlayerLifeSystem playerLifeSystem;
     [HideInInspector] public PlayerMovement playerMovement;
+    public GameObject startGun;
     public List<Image> icones;
     public LayerMask itemsLayer;
     public Transform gunSpawnTransform;
@@ -26,11 +27,17 @@ public class PickupSystem : MonoBehaviour
     public int slt = 0;
     public Sprite nada;
 
-    void Start()
+    void Awake()
     {
         playerLifeSystem = GetComponent<PlayerLifeSystem>();
         playerMovement = GetComponent<PlayerMovement>();
-
+        gunSpawnTransform = transform.Find("SpawnGunPoint");
+        weapon = Instantiate(startGun, gunSpawnTransform);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.layer = 12;
+        weapon.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = weapon.GetComponent<GunController>().gun.gunInGame;
+        weapon.transform.Find("Sprite").localScale = new Vector3(1f, 1f, 1f);
+        Destroy(weapon.transform.Find("Background").gameObject);
     }
 
     public void Update()
@@ -44,18 +51,6 @@ public class PickupSystem : MonoBehaviour
             Debug.Log("Apertou E");
             if(isItem)
             {
-                /*for (int i = 0; i < 5; i++)
-                {
-                    if (hotbar.isFull[i] == false)
-                    {
-                        icones[i].sprite = item.GetComponent<SpriteRenderer>().sprite;
-                        PickupItem();
-                        hotbar.isFull[i] = true;
-                        break;
-                    }
-                    
-                }
-                isItem = false;*/
                 UseItem();
             }
             if(isGun)
@@ -65,61 +60,7 @@ public class PickupSystem : MonoBehaviour
                 isGun = false;
             }
         }
-
-        /*if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            slt = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            slt = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            slt = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            slt = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            slt = 4;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Apertou Space");
-            UseItem(slt);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Apertou Q");
-            DropItem(slt);
-        }
-        */
     }
-
-    /*void UseItem(int slt)
-    {
-        InventoryManager.Instance.RemoveItem(itemController.item);
-        hotbar.isFull[slt] = false;
-        icones[slt].sprite = nada;
-
-    }
-
-    void DropItem(int slt)
-    {
-        InventoryManager.Instance.RemoveItem(itemController.item);
-        hotbar.isFull[slt] = false;
-        icones[slt].sprite = nada;
-    }
-
-    public void PickupItem()
-    { 
-        InventoryManager.Instance.AddItem(itemController.item);
-        Debug.Log("Pegou um " + item.name);
-        Destroy(item);
-    }*/
 
     public void PickupGun()
     {
@@ -129,7 +70,12 @@ public class PickupSystem : MonoBehaviour
         weapon = Instantiate(gun, gunSpawnTransform);
         Destroy(gun);
         weapon.transform.localPosition = Vector3.zero;
-        weapon.layer = 0;
+        weapon.layer = 12;
+        weapon.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = gunController.gun.gunInGame;
+        if(gunController.gun.gunName == "Pistol" || gunController.gun.gunName == "SMG") weapon.transform.Find("Sprite").localScale = new Vector3(1f, 1f, 1f);
+        else if(gunController.gun.gunName == "Shotgun") weapon.transform.Find("Sprite").localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            else weapon.transform.Find("Sprite").localScale = new Vector3(4f, 4f, 4f);
+        Destroy(weapon.transform.Find("Background").gameObject);
     }
 
     void MakeACircle()

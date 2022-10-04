@@ -32,7 +32,7 @@ public class GunUI : MonoBehaviour
         else gunSlot.GetComponent<Image>().enabled = true;
         gunSlot.GetComponent<Image>().sprite = gunSprite;
         if(ammoInMagazine < shootingSystem.magazineSize * 0.3f) ammoInMagazineDisplay.GetComponent<Text>().color = Color.red;
-        else ammoInMagazineDisplay.GetComponent<Text>().color = Color.black;
+        else ammoInMagazineDisplay.GetComponent<Text>().color = new Color(0.003921569f, 0.9333333f, 0.01568628f, 1f);;
         if(totalAmmo < 0) totalAmmo = 0;
         if(ammoInMagazine < 0) ammoInMagazine = 0;
         totalAmmoDisplay.GetComponent<Text>().text = totalAmmo.ToString("00");
