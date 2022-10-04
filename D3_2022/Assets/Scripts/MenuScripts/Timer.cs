@@ -19,11 +19,14 @@ public class Timer : MonoBehaviour
     {
         textDisplay.GetComponent<Text>().text = minutes.ToString("00") + ":" + seconds.ToString("00");
         
+
     }
 
     void Awake()
     {
-        StartCoroutine(TimerTake());       
+        StartCoroutine(TimerTake());
+       
+
     }
 
     IEnumerator TimerTake()

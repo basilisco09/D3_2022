@@ -9,6 +9,11 @@ public class Level2 : MonoBehaviour
     public int seconds;
     public int time;
 
+    private void Awake()
+    {
+        StartCoroutine(TimerTake());
+    }
+
     void Spawn()
     {
         Vector3 randomPos = transform.position + (Vector3)(Random.insideUnitCircle * Radius);
@@ -23,10 +28,7 @@ public class Level2 : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, Radius);
     }
 
-    void Awake()
-    {
-        StartCoroutine(TimerTake());
-    }
+
 
     IEnumerator TimerTake()
     {
@@ -34,7 +36,7 @@ public class Level2 : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if (((seconds > 60) && (seconds % time == 0)) || (seconds == 60))
+            if (((seconds > 60) && (seconds % time == 0) && (seconds < 180)) || (seconds == 40))
                 Spawn();
         }
     }

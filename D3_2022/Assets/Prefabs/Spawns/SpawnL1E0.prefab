@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729602874616250322}
   - component: {fileID: 3940730659981215410}
-  - component: {fileID: 5664746235124515467}
+  - component: {fileID: -5869657477964349586}
   m_Layer: 0
   m_Name: SpawnL1E0
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5664746235124515467
+--- !u!114 &-5869657477964349586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 1603042741432398677, guid: c4b9044dee6ad7942933ba8dbda5fbbf,
     type: 3}
-  Radius: 1
+  Radius: 2
   seconds: 0
   time: 10
+  start: 1

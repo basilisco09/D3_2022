@@ -11,13 +11,12 @@ public class Contador : MonoBehaviour
     void Start()
     {
         textDisplay.GetComponent<Text>().text = cont.ToString("00");
-        
     }
 
-    
-   public bool ContaMortes(int mortes)
+
+    public bool ContaMortes(int mortes)
     {
-        cont+=mortes;
+        cont += mortes;
         textDisplay.GetComponent<Text>().text = cont.ToString("00");
         return true;
     }

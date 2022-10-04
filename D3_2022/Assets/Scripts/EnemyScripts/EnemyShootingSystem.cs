@@ -25,7 +25,10 @@ public class EnemyShootingSystem : MonoBehaviour
     private float attackRange;
     private Transform gunSpawn;
     private EnemyMovement enemyMovement;
-
+    public AudioSource audioSource;
+    public AudioClip reloadAudio;
+    public AudioClip shotAudio;
+   
     void Start()
     {   
         enemyMovement = GetComponent<EnemyMovement>();
@@ -72,13 +75,16 @@ public class EnemyShootingSystem : MonoBehaviour
 
     void Shoot ()
     {
+
         Instantiate(gun.bullet, firePoint.position, firePoint.rotation, gunSpawn);
+       
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
         Debug.Log("Reloading...");
+        audioSource.PlayOneShot(reloadAudio, 1f);
         yield return new WaitForSeconds(reloadTime);
         bulletsInMagazine = magazineSize;
         isReloading = false;
@@ -88,10 +94,14 @@ public class EnemyShootingSystem : MonoBehaviour
     {
         firePoint = weapon.transform.Find("FirePoint");
         gun = weapon.GetComponent<GunController>().gun;
+        audioSource = gunGO.GetComponent<AudioSource>();
         magazineSize = gun.magazineSize;
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;
-        if(bulletsInMagazine <= 0)
+        reloadAudio = gun.reloadSound;
+        shotAudio = gun.shotSound;
+
+        if (bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;
             Debug.Log("Has no ammo!");

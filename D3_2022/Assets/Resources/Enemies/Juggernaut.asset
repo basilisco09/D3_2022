@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 2
   type: 2
   enemyDamage: 0
-  enemyHealth: 500
+  enemyHealth: 1500
   enemySpeed: 3
   attackRange: 8
   attackCooldown: 1

@@ -34,8 +34,8 @@ public class Level1 : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if (((seconds > 11)&&(seconds % time == 0))||(seconds==11))
-                Spawn();
+                if (((seconds > 10) && (seconds % time == 0) && (seconds < 120)) || (seconds == 11))
+                    Spawn();
         }
     }
 }

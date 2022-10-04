@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   gunName: Shotgun
-  gunDamage: 35
+  gunDamage: 40
   magazineSize: 12
   cooldownTime: 1
-  reloadTime: 4
+  reloadTime: 3
   isAutomatic: 0
   bullet: {fileID: 7908780933155763682, guid: 47d502b68e1fce44bb8a822fbc569004, type: 3}
   shotSound: {fileID: 8300000, guid: e5b9870af1b0e9342827c666da688685, type: 3}

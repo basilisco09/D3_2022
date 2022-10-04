@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 60
   secondsOnScreen: 20
-  bulletDamage: 1000
+  bulletDamage: 400
   explosive: 1
   ex: {fileID: 1857866249812343869, guid: aa06ec462f7c693448b0650379debdda, type: 3}
   bullet1: {fileID: 0}

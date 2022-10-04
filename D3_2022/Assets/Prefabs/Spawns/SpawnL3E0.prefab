@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6f260ca8a7b744f80d5b9669a9eb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 1603042741432398677, guid: c4b9044dee6ad7942933ba8dbda5fbbf,
+    type: 3}
   Radius: 1
   seconds: 0
-  time: 15
+  time: 30

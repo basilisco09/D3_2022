@@ -8,7 +8,7 @@ public class Level4 : MonoBehaviour
     public float Radius = 2;
     public int seconds;
     public int time;
-
+  
     void Spawn()
     {
         Vector3 randomPos = transform.position + (Vector3)(Random.insideUnitCircle * Radius);
@@ -34,8 +34,8 @@ public class Level4 : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if (((seconds > 180) && (seconds % time == 0)) || (seconds == 180))
-                    Spawn();
+            if ((seconds > 180) && (seconds % time == 0))
+                Spawn();
         }
     }
 }

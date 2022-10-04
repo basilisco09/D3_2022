@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 4
   gunName: MiniGun
   gunDamage: 10
-  magazineSize: 1000
+  magazineSize: 200
   cooldownTime: 0.05
-  reloadTime: 6
+  reloadTime: 0
   isAutomatic: 1
   bullet: {fileID: 3275379344371257991, guid: a7af1601b32a602489549b8c392a6a8e, type: 3}
   shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}

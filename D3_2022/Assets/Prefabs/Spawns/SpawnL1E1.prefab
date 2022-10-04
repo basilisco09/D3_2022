@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 2398047130809338899, guid: 0e28bbbb69089f745979c732594e0fc5,
     type: 3}
-  Radius: 1
+  Radius: 2
   seconds: 0
   time: 10
+  start: 1

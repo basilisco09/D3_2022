@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   itemName: MRE
   itemDuration: 0
-  cureValue: 150
+  cureValue: 100
   maxHealthUpgrade: 100
   moveSpeedBoost: 0
   boostDuration: 0

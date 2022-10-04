@@ -8,6 +8,8 @@ public class Level5 : MonoBehaviour
     public float Radius = 2;
     public int seconds;
     public int time;
+    
+
 
     void Spawn()
     {
@@ -34,7 +36,7 @@ public class Level5 : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-            if ((seconds == 240))
+            if ((seconds > 240) && (seconds % time == 0))
                 Spawn();
         }
     }

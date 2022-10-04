@@ -8,6 +8,7 @@ public class LootSpawn : MonoBehaviour
     public float Radius = 1;
     public int seconds;
     public int time;
+    
 
     void Spawn()
     {
