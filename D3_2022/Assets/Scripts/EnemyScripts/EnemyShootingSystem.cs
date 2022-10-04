@@ -28,9 +28,6 @@ public class EnemyShootingSystem : MonoBehaviour
     private float attackRange;
     private Transform gunSpawn;
     private EnemyMovement enemyMovement;
-    public AudioSource audioSource;
-    public AudioClip reloadAudio;
-    public AudioClip shotAudio;
    
     void Start()
     {   
@@ -41,6 +38,7 @@ public class EnemyShootingSystem : MonoBehaviour
         Destroy(weapon.transform.Find("Background").gameObject);
         weapon.GetComponentInChildren<SpriteRenderer>().sprite = null;
         weapon.layer = 12;
+        gun = weapon.GetComponent<GunController>().gun;
         if(gun.gunName == "Pistol" || gun.gunName == "SMG") weapon.transform.Find("Sprite").localScale = new Vector3(1f, 1f, 1f);
         else if(gun.gunName == "Shotgun") weapon.transform.Find("Sprite").localScale = new Vector3(0.5f, 0.5f, 0.5f);
             else weapon.transform.Find("Sprite").localScale = new Vector3(4f, 4f, 4f);
@@ -54,40 +52,36 @@ public class EnemyShootingSystem : MonoBehaviour
         Collider2D player = Physics2D.OverlapCircle(this.transform.position, attackRange, playerLayer);
         if(player == null) return;
         GetGunAttributes();
-            if(gun.isAutomatic)
+        if(gun.isAutomatic)
+        {
+            if(hasBulletInMagazine && Time.time > nextFireTime &&!isReloading)
             {
-                if(hasBulletInMagazine && Time.time > nextFireTime &&!isReloading)
-                {
-                    Shoot();
-                    bulletsInMagazine -= 1;
-                    nextFireTime = Time.time + cooldownTime;
-                } 
-            }
-            else
+                Shoot();
+                bulletsInMagazine -= 1;
+                nextFireTime = Time.time + cooldownTime;
+            } 
+        }
+        else
+        {
+            if(hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
             {
-                if(hasBulletInMagazine && Time.time > nextFireTime && !isReloading)
-                {
-                    Shoot();
-                    bulletsInMagazine -= 1;
-                    nextFireTime = Time.time + cooldownTime;
-                }
+                Shoot();
+                bulletsInMagazine -= 1;
+                nextFireTime = Time.time + cooldownTime;
             }
-                
-            if(bulletsInMagazine == 0)
-            {
-                StartCoroutine(Reload());
-            }
+        }
+            
+        if(bulletsInMagazine == 0)
+        {
+            StartCoroutine(Reload());
+        }
     }
 
     void Shoot ()
     {
-
+        Debug.Log("Is shooting");
         Instantiate(gun.bullet, firePoint.position, firePoint.rotation, gunSpawn);
-<<<<<<< HEAD
-       
-=======
         audioSource.PlayOneShot(shotAudio);
->>>>>>> dinareli
     }
 
     IEnumerator Reload()
@@ -111,12 +105,7 @@ public class EnemyShootingSystem : MonoBehaviour
         reloadTime = gun.reloadTime;
         reloadAudio = gun.reloadSound;
         shotAudio = gun.shotSound;
-<<<<<<< HEAD
-
-        if (bulletsInMagazine <= 0)
-=======
         if(bulletsInMagazine <= 0)
->>>>>>> dinareli
         {
             hasBulletInMagazine = false;
             Debug.Log("Has no ammo!");

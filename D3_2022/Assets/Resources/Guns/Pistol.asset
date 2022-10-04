@@ -21,11 +21,6 @@ MonoBehaviour:
   isAutomatic: 0
   bullet: {fileID: 3275379344371257991, guid: d6504d7923f2ff342be8efbe3d2541b0, type: 3}
   shotSound: {fileID: 8300000, guid: 9de45d0597889f549afc578ecdf411c2, type: 3}
-<<<<<<< HEAD
-  reloadSound: {fileID: 8300000, guid: d94a31d47269b7d458ee871708404985, type: 3}
-  gunSprite: {fileID: 21300000, guid: 79d96fffa257b194bb68b87e842bc73c, type: 3}
-=======
-  reloadSound: {fileID: 8300000, guid: 09edd3b430a32fb4aa4dcbe63566e10e, type: 3}
+  reloadSound: {fileID: 8300000, guid: d1faab47278ce2640ae93be572805f49, type: 3}
   gunSprite: {fileID: 21300000, guid: e82886f180d1a444981956fb491173f8, type: 3}
   gunInGame: {fileID: 21300000, guid: 38501aad148e95740aa03c69e6a67c7c, type: 3}
->>>>>>> dinareli

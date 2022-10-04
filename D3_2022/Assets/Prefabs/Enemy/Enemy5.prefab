@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53f916dc81feae74a984bb9d0011aba1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0
   pickNextWaypointDist: 2
-  endReachedDistance: 1
+  endReachedDistance: 3
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -317,6 +317,9 @@ MonoBehaviour:
   cooldownTime: 0
   nextFireTime: 0
   stoppingReload: 0
+  audioSource: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  shotAudio: {fileID: 0}
 --- !u!1 &7656167659201235961
 GameObject:
   m_ObjectHideFlags: 0

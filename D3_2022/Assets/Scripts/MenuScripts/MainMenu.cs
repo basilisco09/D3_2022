@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if(canPlay) SceneManager.LoadScene("Versao02.10");
+        if(canPlay) SceneManager.LoadScene("BuildFinal");
     }
 
     public void PlayGame()
