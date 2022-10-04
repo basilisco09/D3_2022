@@ -18,6 +18,6 @@ MonoBehaviour:
   enemyDamage: 0
   enemyHealth: 100
   enemySpeed: 7
-  attackRange: 9
+  attackRange: 10
   attackCooldown: 3
   enemyFOV: 1000

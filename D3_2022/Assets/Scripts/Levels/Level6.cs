@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1 : MonoBehaviour
+public class Level6 : MonoBehaviour
 {
     public GameObject ItemPrefab;
     public float Radius = 2;
     public int seconds;
     public int time;
+
+
 
     void Spawn()
     {
@@ -34,8 +36,8 @@ public class Level1 : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             seconds += 1;
-                if ((((seconds > 10) && (seconds % time == 0)) && ((seconds < 120)||(seconds > 270))) || (seconds == 11))
-                    Spawn();
+            if ((seconds > 300) && (seconds % time == 0))
+                Spawn();
         }
     }
 }
