@@ -351,6 +351,7 @@ MonoBehaviour:
   hasGun: 0
   isReloading: 0
   hasChangedGun: 0
+  reloadCanceled: 0
   cooldownTime: 0
   nextFireTime: 0
   stoppingReload: 0

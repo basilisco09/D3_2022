@@ -16,7 +16,7 @@ public class ShootingSystem : MonoBehaviour
     [HideInInspector]public bool hasTotalAmmo;
     [HideInInspector]public int fireRate;
     [HideInInspector]public float reloadTime;
-    [HideInInspector]public bool hasGun = false;
+    [HideInInspector]public bool hasGun = true;
     [HideInInspector]public bool isReloading = false;
     [HideInInspector]public bool hasChangedGun;
     [HideInInspector]public bool reloadCanceled = false;
@@ -30,18 +30,29 @@ public class ShootingSystem : MonoBehaviour
 
     private PauseMenu pauseMenu;
 
-    void Start()
+    void Awake()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
         pickupSystem = GetComponent<PickupSystem>();
+        gunGO = GetComponent<PickupSystem>().weapon;
+        firePoint = gunGO.transform.Find("FirePoint");
+        audioSource = gunGO.GetComponent<AudioSource>();
+        gun = gunGO.GetComponent<GunController>().gun;
+        magazineSize = gun.magazineSize;
+        cooldownTime = gun.cooldownTime;
+        reloadTime = gun.reloadTime;
+        reloadAudio = gun.reloadSound;
+        shotAudio = gun.shotSound;
+        bulletsInMagazine = magazineSize;
+        totalAmmo = 5 * magazineSize;
+        hasTotalAmmo = true;
     }
 
     void Update()
     {
         gunGO = GetComponent<PickupSystem>().weapon;
-        if(gunGO != null) hasGun = true;
         if(pickupSystem.hasChangedGun) StartCoroutine(ReloadCancel());
-        if(hasGun) GetGunAttributes();
+        GetGunAttributes();
         if(pickupSystem.hasChangedGun)
         {
             Debug.Log("Mudou de arma");
@@ -51,39 +62,36 @@ public class ShootingSystem : MonoBehaviour
         }
         if(!pauseMenu.GameIsPaused)
         {
-            if(hasGun)
+            if(gun.isAutomatic)
             {
-                if(gun.isAutomatic)
+                if(Input.GetMouseButton(0) && Time.time > nextFireTime)
                 {
-                    if(Input.GetMouseButton(0) && Time.time > nextFireTime)
+                    if(bulletsInMagazine > 0)
                     {
-                        if(bulletsInMagazine > 0)
-                        {
-                            Shoot();
-                            bulletsInMagazine -= 1;
-                            nextFireTime = Time.time + cooldownTime;
-                        }
-                        else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
-                    } 
-                }
-                else
-                {
-                    if(Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
-                    {
-                        if(bulletsInMagazine > 0)
-                        {
-                            Shoot();
-                            bulletsInMagazine -= 1;
-                            nextFireTime = Time.time + cooldownTime;
-                        }
-                        else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
+                        Shoot();
+                        bulletsInMagazine -= 1;
+                        nextFireTime = Time.time + cooldownTime;
                     }
-                }
-                    
-                if(bulletsInMagazine == 0 && hasTotalAmmo && !isReloading && !reloadCanceled)
+                    else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
+                } 
+            }
+            else
+            {
+                if(Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
                 {
-                    StartCoroutine(Reload());
+                    if(bulletsInMagazine > 0)
+                    {
+                        Shoot();
+                        bulletsInMagazine -= 1;
+                        nextFireTime = Time.time + cooldownTime;
+                    }
+                    else if(!hasBulletInMagazine && !hasTotalAmmo) if(!audioSource.isPlaying) audioSource.PlayOneShot(noAmmoAudio, 1f);
                 }
+            }
+                
+            if(bulletsInMagazine == 0 && hasTotalAmmo && !isReloading && !reloadCanceled)
+            {
+                StartCoroutine(Reload());
             }
         }
     }

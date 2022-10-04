@@ -21,6 +21,9 @@ public class EnemyShootingSystem : MonoBehaviour
     [HideInInspector]public float cooldownTime;
     [HideInInspector]public float nextFireTime = 0;
     [HideInInspector]public float stoppingReload = 0;
+    [HideInInspector]public AudioSource audioSource;
+    [HideInInspector]public AudioClip reloadAudio;
+    [HideInInspector]public AudioClip shotAudio;
     private Enemies enemy;
     private float attackRange;
     private Transform gunSpawn;
@@ -32,8 +35,12 @@ public class EnemyShootingSystem : MonoBehaviour
         gunSpawn = transform.Find("GunSpawn");
         weapon = Instantiate(gunGO, gunSpawn);
         weapon.transform.localPosition = Vector3.zero;
+        Destroy(weapon.transform.Find("Background").gameObject);
         weapon.GetComponentInChildren<SpriteRenderer>().sprite = null;
-        weapon.layer = 0;
+        weapon.layer = 12;
+        if(gun.gunName == "Pistol" || gun.gunName == "SMG") weapon.transform.Find("Sprite").localScale = new Vector3(1f, 1f, 1f);
+        else if(gun.gunName == "Shotgun") weapon.transform.Find("Sprite").localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            else weapon.transform.Find("Sprite").localScale = new Vector3(4f, 4f, 4f);
         enemy = GetComponent<EnemyController>().enemy;
         attackRange = enemy.attackRange;
     }
@@ -43,7 +50,6 @@ public class EnemyShootingSystem : MonoBehaviour
         
         Collider2D player = Physics2D.OverlapCircle(this.transform.position, attackRange, playerLayer);
         if(player == null) return;
-        //if(!enemyMovement.canShot) return;
         GetGunAttributes();
             if(gun.isAutomatic)
             {
@@ -73,6 +79,7 @@ public class EnemyShootingSystem : MonoBehaviour
     void Shoot ()
     {
         Instantiate(gun.bullet, firePoint.position, firePoint.rotation, gunSpawn);
+        audioSource.PlayOneShot(shotAudio);
     }
 
     IEnumerator Reload()
@@ -87,10 +94,13 @@ public class EnemyShootingSystem : MonoBehaviour
     void GetGunAttributes()
     {
         firePoint = weapon.transform.Find("FirePoint");
+        audioSource = weapon.GetComponent<AudioSource>();
         gun = weapon.GetComponent<GunController>().gun;
         magazineSize = gun.magazineSize;
         cooldownTime = gun.cooldownTime;
         reloadTime = gun.reloadTime;
+        reloadAudio = gun.reloadSound;
+        shotAudio = gun.shotSound;
         if(bulletsInMagazine <= 0)
         {
             hasBulletInMagazine = false;
